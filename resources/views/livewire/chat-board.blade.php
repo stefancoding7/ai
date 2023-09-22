@@ -58,7 +58,7 @@
         </div>
         <div class="card-footer">
             <div class="input-group mb-3">
-            <input wire:model="out_message" type="text" class="form-control" placeholder="Message..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input wire:model="out_message" type="text" class="form-control" placeholder="Message..."  aria-describedby="button-addon2">
             <button wire:click="submit" class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
             </div>
 
