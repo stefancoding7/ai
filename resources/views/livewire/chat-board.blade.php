@@ -7,7 +7,7 @@
                     <span class="online_icon"></span>
                 </div>
                 <div class="user_info">
-                    <span>Stefan Caky</span>
+                    <span>{{auth()->user()->name}}</span>
 
                 </div>
                 <div class="video_cam">
