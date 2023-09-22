@@ -3,11 +3,13 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use OpenAI\Laravel\Facades\OpenAI;
 
 class ChatBoard extends Component
 {
 
     public $out_message;
+    public $in_message;
 
 
     public function render()
@@ -17,6 +19,11 @@ class ChatBoard extends Component
 
     public function submit()
     {
-        dd($this->out_message);
+        $result = OpenAI::completions()->create([
+            'model' => 'text-davinci-003',
+            'prompt' => $this->out_message,
+        ]);
+
+        $this->in_message = $result['choices'][0]['text']; 
     }
 }
