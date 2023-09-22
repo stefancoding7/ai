@@ -15,7 +15,7 @@ class ChatBoard extends Component
         return view('livewire.chat-board');
     }
 
-    public submit()
+    public function submit()
     {
         dd($this->out_message);
     }
