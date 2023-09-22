@@ -15,6 +15,12 @@
                         </div>
                         
                     </div>
+                    <div class="col-6">
+                        <div class="d-grid gap-2 mt-3">
+                            <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}primary">Create Image</button>
+                        </div>
+                        
+                    </div>
                 </div>
                 
             </div>
@@ -36,7 +42,11 @@
             @if($in_message)
                 <div class="d-flex justify-content-end mb-4">
                     <div class="msg_cotainer_send">
-                        {{$in_message}}
+                        @if($selected_gpt == 'create-image')
+                            <img src="{{$in_message}}" alt="ttt">
+                        @else
+                            {{$in_message}}
+                        @endif
                         
                     </div>
                     <div class="img_cont_msg">
