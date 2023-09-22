@@ -27,6 +27,7 @@ class TestAiSelf extends Command
      */
     public function handle()
     {
+        dd(OpenAI::completions()['config']);
        $result = OpenAI::completions()->create([
             'model' => 'text-davinci-003',
             'prompt' => 'write me good book title',

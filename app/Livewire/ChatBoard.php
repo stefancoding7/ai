@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use OpenAI\Laravel\Facades\OpenAI;
 
+use OpenAI;
 class ChatBoard extends Component
 {
 
@@ -19,11 +19,18 @@ class ChatBoard extends Component
 
     public function submit()
     {
-        $result = OpenAI::completions()->create([
-            'model' => 'text-davinci-003',
+
+        
+        $client = OpenAI::client(auth()->user()->api_key);
+
+        $result = $client->completions()->create([
+            'model' => 'gpt-3.5-turbo-instruct',
             'prompt' => $this->out_message,
         ]);
 
-        $this->in_message = $result['choices'][0]['text']; 
+        $this->in_message = $result['choices'][0]['text'];
+
+
+        
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Models\User;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,20 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function myAccount()
+    {
+        return view('my-account');
+    }
+
+    public function myAccountPost(Request $request)
+    {
+
+        $user = User::find(auth()->user()->id);
+        $user->api_key = $request->api_key;
+        $user->save();
+
+        return redirect()->back();
     }
 }
