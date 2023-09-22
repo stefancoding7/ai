@@ -283,6 +283,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('my-account') }}">
+                                       Bubby Boo chat
+                                    </a>
                                      <a class="dropdown-item" href="{{ route('my-account') }}">
                                        My Account
                                     </a>
