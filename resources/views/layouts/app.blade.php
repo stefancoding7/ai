@@ -45,6 +45,7 @@
 		.card-header{
 			border-radius: 15px 15px 0 0 !important;
 			border-bottom: 0 !important;
+			background: grey;
 		}
 	 .card-footer{
 		border-radius: 0 0 15px 15px !important;

@@ -1,29 +1,24 @@
-<div class="card">
+<div class="card " >
         <div class="card-header msg_head">
-            <div class="d-flex bd-highlight">
-                <div class="img_cont">
-                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                        class="rounded-circle user_img">
-                    <span class="online_icon"></span>
+            <div class="bd-highlight">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="d-grid gap-2">
+                            <button wire:click="setSelected_gpt('gpt-4')" class="btn btn-{{$selected_gpt != 'gpt-4' ? 'outline-' : ''}}primary">GPT 4</button>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-6">
+                        <div class="d-grid gap-2">
+                            <button wire:click="setSelected_gpt('gpt-3.5-turbo')" class="btn btn-{{$selected_gpt != 'gpt-3.5-turbo' ? 'outline-' : ''}}primary">GPT 3.5</button>
+                        </div>
+                        
+                    </div>
                 </div>
-                <div class="user_info">
-                    <span>{{auth()->user()->name}}</span>
-
-                </div>
-                <div class="video_cam">
-                    <span><i class="fas fa-video"></i></span>
-                    <span><i class="fas fa-phone"></i></span>
-                </div>
+                
             </div>
-            <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
-            <div class="action_menu">
-                <ul>
-                    <li><i class="fas fa-user-circle"></i> View profile</li>
-                    <li><i class="fas fa-users"></i> Add to close friends</li>
-                    <li><i class="fas fa-plus"></i> Add to group</li>
-                    <li><i class="fas fa-ban"></i> Block</li>
-                </ul>
-            </div>
+            
         </div>
         <div class="card-body msg_card_body">
             @if($out_message)
