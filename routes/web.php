@@ -24,4 +24,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/my-account', [App\Http\Controllers\HomeController::class, 'myAccount'])->name('my-account');
 
-Route::get('/my-account-post', [App\Http\Controllers\HomeController::class, 'myAccountPost'])->name('my-account-post');
+Route::post('/my-account-post', [App\Http\Controllers\HomeController::class, 'myAccountPost'])->name('my-account-post');
