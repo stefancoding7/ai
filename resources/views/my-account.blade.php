@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-header msg_head">
                             <label>GPT API Key</label>
-                            <input name="apiKey" type="text" class="form-control" value="{{auth()->user()->api_key}}"> 
+                            <input name="apiKey" type="text" class="form-control" value="{{auth()->user()->api_key}}" autocomplete="off"> 
                         </div>
                         <div class="card-body">
                             <button class="btn btn-primary" type="submit">Update</button>
