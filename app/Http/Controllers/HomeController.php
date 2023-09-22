@@ -39,6 +39,6 @@ class HomeController extends Controller
         $user->api_key = $request->api_key;
         $user->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'API KEY Updated');
     }
 }
