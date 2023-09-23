@@ -83,7 +83,7 @@ class HomeController extends Controller
 
     public function conversations()
     {
-        $conversations = Conversation::where('user_id', auth()->user()->id)->get();
+        $conversations = Conversation::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
         $deleted = false;
         foreach($conversations as $c){
 

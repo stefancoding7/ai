@@ -93,7 +93,7 @@
             </div>
             
         </div>
-        <div class="card-body msg_card_body">
+        <div class="card-body msg_card_body d-flex flex-column justify-content-end">
             @if($messages->count() > 0)
                 @foreach($messages as $m)
                     @if($m->role == 'user')
