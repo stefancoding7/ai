@@ -26,6 +26,7 @@ class GetAIContent extends Component
     public function createImage($selected_gpt)
     {
         $conversation = Conversation::where('user_id', auth()->user()->id)->where('long_id', $this->slug)->first();
+        
         $messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->where('model', $selected_gpt)->orderBy('id', 'desc')->first();
         $apikey = auth()->user()->api_key;
         $client = OpenAI::factory()
@@ -74,7 +75,14 @@ class GetAIContent extends Component
         
         
         $conversation = Conversation::where('user_id', auth()->user()->id)->where('long_id', $this->slug)->first();
-        $messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->where('model', $selected_gpt)->get();
+        if(auth()->user()->saver_mode == 'Extra Save'){
+            $messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->where('model', $selected_gpt)->orderBy('id', 'desc')->take(3)->get();
+        } elseif(auth()->user()->saver_mode == 'Saver'){
+            $messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->where('model', $selected_gpt)->orderBy('id', 'desc')->take(5)->get();
+        }else {
+            $messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->where('model', $selected_gpt)->get();
+        }
+        
         $model = $messages->last()->model;
          // Transform the collection into the desired format
         $messageArray = $messages->map(function ($message) {
