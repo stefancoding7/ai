@@ -28,7 +28,7 @@ class ChatBoard extends Component
 
         if($conversation){
             
-            $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->get();
+            $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('model', $this->selected_gpt)->where('conversation_id', $conversation->id)->get();
             $this->dispatch('set-selected-gpt', $this->selected_gpt);
         }
        
