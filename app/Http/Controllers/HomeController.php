@@ -50,8 +50,8 @@ class HomeController extends Controller
         $gpt35TotalTokens = MessageAI::where('user_id', auth()->user()->id)->where('model', 'gpt-3.5-turbo')->sum('total_tokens');
         $createImageTotalTokens = MessageAI::where('user_id', auth()->user()->id)->where('model', 'gpt-3.5-turbo')->sum('total_tokens');
 
-        $gpt4Price = $this->calculatePrice(0.12, $gpt4TotalTokens);
-        $gpt35Price = $this->calculatePrice(0.004, $gpt35TotalTokens);
+        $gpt4Price = $this->calculatePrice(0.006, $gpt4TotalTokens);
+        $gpt35Price = $this->calculatePrice(0.002, $gpt35TotalTokens);
         $imagePrice = $this->calculatePrice(0.016, $createImageTotalTokens);
 
         return view('my-account', compact('gpt4TotalTokens', 'gpt35TotalTokens', 'createImageTotalTokens', 'gpt4Price', 'gpt35Price', 'imagePrice'));

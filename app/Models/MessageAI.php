@@ -24,7 +24,7 @@ class MessageAI extends Model
         // Replace code blocks with styled <pre> tags
         $styledContent = preg_replace_callback($pattern, function ($matches) use ($codeBlockClass) {
             // Wrap the matched code block in <pre> tags with the specified class
-            return '<pre class="' . $codeBlockClass . '">' . htmlspecialchars($matches[1]) . '</pre>';
+            return '<doce><pre class="' . $codeBlockClass . '">' . htmlspecialchars($matches[1]) . '</pre></doce>';
         }, $content);
 
         return $styledContent;
