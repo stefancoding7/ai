@@ -34,7 +34,7 @@ class ChatBoard extends Component
          if($this->selected_gpt == 'create-image'){
             $this->createImage();
         }
-     
+        $this->out_message = '';
     }
 
     public function createImage()
