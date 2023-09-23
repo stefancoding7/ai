@@ -29,10 +29,10 @@
         <div class="card-body msg_card_body">
             @if($out_message)
                 <div class="d-flex justify-content-start mb-4">
-                    <div class="img_cont_msg">
+                    {{-- <div class="img_cont_msg">
                         <img src=""
                             class="rounded-circle user_img_msg">
-                    </div>
+                    </div> --}}
                     <div class="msg_cotainer">
                         {{$out_message}}
                         
@@ -49,9 +49,9 @@
                         @endif
                         
                     </div>
-                    <div class="img_cont_msg">
+                    {{-- <div class="img_cont_msg">
                         <img src="" class="rounded-circle user_img_msg">
-                    </div>
+                    </div> --}}
                 </div>
             @endif
 
