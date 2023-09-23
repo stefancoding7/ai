@@ -4,20 +4,20 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="d-grid gap-2">
-                            <button wire:click="setSelected_gpt('gpt-4')" class="btn btn-{{$selected_gpt != 'gpt-4' ? 'outline-' : ''}}primary">GPT 4</button>
+                            <button wire:click="setSelected_gpt('gpt-4')" class="btn btn-{{$selected_gpt != 'gpt-4' ? 'outline-' : ''}}danger">GPT 4</button>
                         </div>
                         
                     </div>
                     
                     <div class="col-6">
                         <div class="d-grid gap-2">
-                            <button wire:click="setSelected_gpt('gpt-3.5-turbo')" class="btn btn-{{$selected_gpt != 'gpt-3.5-turbo' ? 'outline-' : ''}}primary">GPT 3.5</button>
+                            <button wire:click="setSelected_gpt('gpt-3.5-turbo')" class="btn btn-{{$selected_gpt != 'gpt-3.5-turbo' ? 'outline-' : ''}}danger">GPT 3.5</button>
                         </div>
                         
                     </div>
                     <div class="col-6">
                         <div class="d-grid gap-2 mt-3">
-                            <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}primary">Create Image</button>
+                            <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}danger">Create Image</button>
                         </div>
                         
                     </div>
