@@ -36,7 +36,7 @@
     transform: scale(0);
     
     
-    animation: message 0.35s ease-out 0s forwards;
+    animation: message 0.25s ease-out 0s forwards;
     animation-delay: var(--timeline);
     
     }
@@ -47,7 +47,7 @@
         max-height: 100vmax;
     }
     80% {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
     100% {
         transform: scale(1);
