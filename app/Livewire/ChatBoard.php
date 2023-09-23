@@ -26,10 +26,10 @@ class ChatBoard extends Component
     public function submit()
     {
         if($this->selected_gpt == 'gpt-4'){
-            $this->creatGpt4();
+            $this->createGpt4();
         }
          if($this->selected_gpt == 'gpt-3.5-turbo'){
-            $this->creatGpt3();
+            $this->createGpt3();
         }
          if($this->selected_gpt == 'create-image'){
             $this->createImage();
