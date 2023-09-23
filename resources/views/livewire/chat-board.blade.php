@@ -36,7 +36,7 @@
     transform: scale(0);
     
     
-    animation: message 0.15s ease-out 0s forwards;
+    animation: message 0.35s ease-out 0s forwards;
     animation-delay: var(--timeline);
     
     }
