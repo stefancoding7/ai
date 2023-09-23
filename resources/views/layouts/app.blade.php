@@ -19,7 +19,7 @@
 
     <style>
         body,html{
-			height: 100%;
+			height: 100vh;
 			margin: 0;
 			background: #7F7FD5;
 	       background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
@@ -257,7 +257,7 @@
     @livewireStyles
 </head>
 <body>
-    <div id="app">
+    <div id="app" >
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
