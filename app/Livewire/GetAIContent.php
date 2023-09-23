@@ -22,6 +22,52 @@ class GetAIContent extends Component
         return view('livewire.get-a-i-content');
     }
 
+    #[On('get-ai-content-image')] 
+    public function createImage($selected_gpt)
+    {
+        $conversation = Conversation::where('user_id', auth()->user()->id)->where('long_id', $this->slug)->first();
+        $messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->where('model', $selected_gpt)->orderBy('id', 'desc')->first();
+        $apikey = auth()->user()->api_key;
+        $client = OpenAI::factory()
+            ->withApiKey($apikey)
+            //->withBaseUri('api.openai.com/v1/chat') // default: api.openai.com/v1
+            ->make();
+        $response = $client->images()->create([
+            'prompt' => $messages->content,
+            'n' => 1,
+            'size' => '256x256',
+            'response_format' => 'url',
+        ]);
+
+        $response->created; // 1589478378
+
+        foreach ($response->data as $data) {
+            $data->url; // 'https://oaidalleapiprodscus.blob.core.windows.net/private/...'
+            $data->b64_json; // null
+        }
+
+        $response->toArray();
+        
+        
+        $message = new MessageAi;
+        $message->conversation_id = $conversation->id;
+        $message->user_id = auth()->user()->id;
+        $message->role = 'assistant';
+        $message->model = 'create-image';
+        $message->content = $response['data'][0]['url'];
+        // $message->prompt_tokens = $response->usage->promptTokens;
+        // $message->completion_tokens = $response->usage->completionTokens;
+        // $message->total_tokens = $response->usage->totalTokens;
+        $message->save();
+
+        if(is_null($conversation->name)){
+            $conversation->name = strlen($messages->content) > 50 ? substr($messages->content,0,50)."..." : $messages->content;
+            $conversation->save();
+        }
+
+        $this->dispatch('update-chat-board', $message->model);
+    }
+
     #[On('get-ai-content-gpt')] 
     public function createGpt($selected_gpt)
     {
@@ -85,7 +131,7 @@ class GetAIContent extends Component
         }
 
         
-        $this->dispatch('update-chat-board', [$message->model]);
+        $this->dispatch('update-chat-board', $message->model);
 
 
     }

@@ -50,7 +50,7 @@ class ChatInput extends Component
             $message->content = $this->out_message;
             $message->save();
             $this->out_message = '';
-            $this->dispatch('update-chat-board', [$message->model]);
+            $this->dispatch('update-chat-board', $message->model);
         } else {
             dd('type not');
         }

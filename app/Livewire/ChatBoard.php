@@ -20,7 +20,7 @@ class ChatBoard extends Component
     public $messages;
     public $slug;
 
-    protected $listeners = ['update-chat-board' => 'updateChatBoard'];
+    //protected $listeners = ['update-chat-board' => 'updateChatBoard'];
 
     public function mount()
     {
@@ -43,14 +43,38 @@ class ChatBoard extends Component
             $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('model', $model)->where('conversation_id', $conversation->id)->get();
         }
         
-        if($this->messages->count() > 0){
-            if($this->messages->last()->role == 'user'){
-            
-                $this->dispatch('get-ai-content-gpt', $model);
-            }
 
-            
+            if($this->messages->count() > 0){
+                if($this->messages->last()->role == 'user'){
+                    //dd($model);
+                    if($model == 'create-image'){
+                        //dd($model, '1');
+                        $this->dispatch('get-ai-content-image', $model);
+                    } else {
+                        //dd($model, '2');
+                        $this->dispatch('get-ai-content-gpt', $model);
+                    }
+                    
+                }
+
+                
+            }
+        
+        
+        
+
+    }
+
+    public function updateChatBoardNoAI($model)
+    {
+        $conversation = Conversation::where('long_id', $this->slug)->first();
+       
+        if($conversation){
+            $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('model', $model)->where('conversation_id', $conversation->id)->get();
         }
+        
+       
+        
         
 
     }
@@ -64,7 +88,7 @@ class ChatBoard extends Component
     {
         $this->selected_gpt = $type;
         $this->dispatch('set-selected-gpt', $this->selected_gpt);
-        $this->updateChatBoard($this->selected_gpt);
+        $this->updateChatBoardNoAI($this->selected_gpt);
     }
 
     
