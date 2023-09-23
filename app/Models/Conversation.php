@@ -9,4 +9,11 @@ class Conversation extends Model
 {
     
     use HasFactory;
+
+    public function messagesAi()
+    {
+        return $this->hasMany('App\Models\MessageAI', 'conversation_id', 'id');
+    }
+
+    
 }

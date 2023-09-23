@@ -5,13 +5,30 @@
         <div class="row justify-content-center h-100">
 
             <div class="col-md-8 col-xl-6 chat">
-                <ul class="list-group list-group-flush" style="border-radius: 20px;">
+                <ol class="list-group list-group-numbered" style="border-radius: 20px;">
                     @foreach($conversations as $conv)
-                        <li class="list-group-item"><a href="{{route('chat', $conv->long_id)}}">{{$conv->name}}</a></li>
+                        <a href="{{route('chat', $conv->long_id)}}"  class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                            <div class="fw-bold">{{$conv->name}}</div>
+                                @php($model = $conv->messagesAI->groupBy('model'))
+                                @foreach($model as $m)
+                                    @if($m->first()->model == 'gpt-4')
+                                        <span class="badge text-bg-light">GPT 4</span>
+
+                                        
+                                    @endif
+                                    @if($m->first()->model == 'gpt-3.5-turbo')
+                                        <span class="badge text-bg-light">GPT 3</span>
+
+                                        
+                                    @endif
+                                    
+                                @endforeach
+                            </div>
+                            <span class="badge bg-primary rounded-pill">{{$conv->messagesAI->count()}}</span>
+                        </a>
                     @endforeach
-                    
-                    
-                </ul>
+                </ol>   
                 <div class="fixed-bottom">
                     <div class="d-grid gap-2 mb-2">
                         <a href="{{route('chat')}}" class="btn btn-primary" style="height: 50px; margin-left: 20px; margin-right: 20px; padding-top: 10px;"> <i class="bi bi-plus" style="font-size: 15px;"></i>

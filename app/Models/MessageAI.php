@@ -9,4 +9,9 @@ class MessageAI extends Model
 {
     protected $table = 'messages';
     use HasFactory;
+
+    // public function getGroupModel()
+    // {
+    //     return $this->
+    // }
 }
