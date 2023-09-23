@@ -1,4 +1,63 @@
 <div class="card " >
+    <style>
+        /* .chat {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 20rem;
+  border: 1px #9bc dashed;
+  font: 1rem/1.5 "Open Sans", Arial;
+  color: #313131;
+  position: relative;
+  overflow: hidden;
+} */
+/* .chat__inner {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+}
+.chat::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  height: 40%;
+  width: 100%;
+  background: linear-gradient(to bottom, white 20%, rgba(255, 255, 255, 0)) repeat-x;
+}
+
+.chat p {
+  margin: 0;
+  padding: 0;
+} */
+
+    .chat__message {
+    
+    
+    transform: scale(0);
+    
+    
+    animation: message 0.15s ease-out 0s forwards;
+    animation-delay: var(--timeline);
+    
+    }
+
+
+    @keyframes message {
+    0% {
+        max-height: 100vmax;
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        max-height: 100vmax;
+        overflow: visible;
+        
+    }
+    }
+
+    </style>
         <div class="card-header msg_head">
             <div class="bd-highlight">
                 <div class="row">
@@ -40,14 +99,14 @@
                     @if($m->role == 'user')
                         <div class="d-flex justify-content-start mb-4">
                             
-                            <div class="msg_cotainer">
+                            <div class="msg_cotainer chat__message  chat__message_A">
                                 {{$m->content}}
 
                             </div>
                         </div>
                     @else
                         <div class="d-flex justify-content-end mb-4">
-                            <div class="msg_cotainer_send">
+                            <div class="msg_cotainer_send chat__message  chat__message_A">
                                 @if($m->model == 'create-image')
                                     <img src="{{$m->content}}" alt="image">
                                     <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
