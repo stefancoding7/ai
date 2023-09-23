@@ -27,40 +27,42 @@
             
         </div>
         <div class="card-body msg_card_body">
-            @if($out_message)
-                <div class="d-flex justify-content-start mb-4">
-                    {{-- <div class="img_cont_msg">
-                        <img src=""
-                            class="rounded-circle user_img_msg">
-                    </div> --}}
-                    <div class="msg_cotainer">
-                        {{$out_message}}
-                        
-                    </div>
-                </div>
+            @if($messages->count() > 0)
+                @foreach($messages as $m)
+                    @if($m->role == 'user')
+                        <div class="d-flex justify-content-start mb-4">
+                            
+                            <div class="msg_cotainer">
+                                {{$m->content}}
+                                
+                            </div>
+                        </div>
+                    @else
+                        <div class="d-flex justify-content-end mb-4">
+                            <div class="msg_cotainer_send">
+                                {{$m->content}}
+                                
+                            </div>
+                            
+                        </div>
+                    @endif
+                    
+                @endforeach
             @endif
-            @if($in_message)
-                <div class="d-flex justify-content-end mb-4">
-                    <div class="msg_cotainer_send">
-                        @if($selected_gpt == 'create-image')
-                            <img src="{{$in_message}}" alt="ttt">
-                        @else
-                            {{$in_message}}
-                        @endif
-                        
-                    </div>
-                    {{-- <div class="img_cont_msg">
-                        <img src="" class="rounded-circle user_img_msg">
-                    </div> --}}
-                </div>
-            @endif
+            
+            
 
         </div>
         <div class="card-footer">
-            <div class="input-group mb-3" style="height: 50px;">
-            <input wire:model="out_message" type="text" class="form-control" placeholder="Message..."  aria-describedby="button-addon2">
-            <button wire:click="submit" wire:keydown.enter="submit" class="btn btn-outline-secondary" type="button" id="button-addon2" style="color: white; width: 100px;">Send</button>
+            <div wire:loading  style="height: 30px; text-align: center;">
+                <p style="">
+                    <div class="spinner-grow spinner-grow-sm" role="status">
+                        <span class="visually-hidden">Loading...</span> 
+                    </div>
+                    Generate Response
+                </p>
             </div>
+            @livewire('chat-input')
 
         </div>
     </div>
