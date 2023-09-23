@@ -14,7 +14,8 @@
                 </ul>
                 <div class="fixed-bottom">
                     <div class="d-grid gap-2 mb-2">
-                        <a href="{{route('chat')}}" class="btn btn-primary" style="height: 50px;">New chat</a>
+                        <a href="{{route('chat')}}" class="btn btn-primary" style="height: 50px; margin-left: 20px; margin-right: 20px; padding-top: 10px;"> <i class="bi bi-plus" style="font-size: 15px;"></i>
+                        New chat</a>
                     </div>
                 </div>
                 

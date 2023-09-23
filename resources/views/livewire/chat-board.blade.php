@@ -4,15 +4,18 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="d-grid gap-2">
-                            <a href="{{route('conversations')}}" class="btn btn-info"> <- Conversations</a>
+                            <a href="{{route('conversations')}}" class="btn btn-info"> <i class="bi bi-arrow-90deg-left"></i> Conversations</a>
                         </div>
                         
                     </div>
                     <div class="col-6">
                         <div class="d-grid gap-2 mb-2">
-                            <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}danger" style="{{$selected_gpt != 'create-image' ? 'color: black;' : ''}}">Create Image</button>
+                            <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}danger" style="{{$selected_gpt != 'create-image' ? 'color: black;' : ''}}"><i class="bi bi-image"></i> Create Image</button>
                         </div>
                         
+                    </div>
+                    <div class="col-md-12">
+                        <hr>
                     </div>
                     <div class="col-6">
                         <div class="d-grid gap-2">
