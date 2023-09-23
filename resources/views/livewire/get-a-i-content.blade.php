@@ -1,3 +1,10 @@
 <div>
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+    <div wire:loading.block  style="height: 40px; text-align: center;">
+        <p style="">
+            <div class="spinner-grow spinner-grow-sm" role="status">
+                <span class="visually-hidden">Loading...</span> 
+            </div>
+            Generate Response
+        </p>
+    </div>
 </div>

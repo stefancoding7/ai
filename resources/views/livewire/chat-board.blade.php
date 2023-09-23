@@ -62,16 +62,10 @@
 
         </div>
         <div class="card-footer">
-            <div wire:loading wire:target="get-ai-content-gpt-4"  style="height: 30px; text-align: center;">
-                <p style="">
-                    <div class="spinner-grow spinner-grow-sm" role="status">
-                        <span class="visually-hidden">Loading...</span> 
-                    </div>
-                    Generate Response
-                </p>
-            </div>
+            @livewire('get-a-i-content', ['slug' => $slug])
+            
             @livewire('chat-input', ['slug' => $slug])
 
         </div>
-        @livewire('get-a-i-content', ['slug' => $slug])
+        
     </div>

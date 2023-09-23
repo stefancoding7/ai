@@ -52,22 +52,6 @@ class ChatBoard extends Component
             
         }
         
-        
-        // // Transform the collection into the desired format
-        // $messageArray = $this->messages->map(function ($message) {
-        //     // Define the structure for each message
-        //     return [
-        //         'role' => $message->role, // Replace with the actual column name from your database
-        //         'content' => $message->content, // Replace with the actual column name from your database
-        //     ];
-        // });
-
-        // // If you want to convert the result to a standard array
-        // $messageArray = $messageArray->toArray();
-        
-        
-        // $this->createGpt4($messageArray);
-        // $this->messages = MessageAI::where('user_id', auth()->user()->id)->get();
 
     }
 
