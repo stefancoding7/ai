@@ -75,6 +75,7 @@ class HomeController extends Controller
 
         $user = User::find(auth()->user()->id);
         $user->api_key = $request->api_key;
+        $user->saver_mode = $request->saver_mode;
         $user->save();
 
         return redirect()->back()->with('message', 'Profile has ben updated');

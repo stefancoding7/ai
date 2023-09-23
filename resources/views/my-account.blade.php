@@ -18,15 +18,6 @@
                                 </div>
 
                             @endif
-                            <label>GPT API Key</label>
-                            <input name="api_key" type="text" class="form-control" value="{{auth()->user()->api_key}}" autocomplete="off"> 
-                            <select name="saver_mode" class="form-control">
-                                <option value="Extra Saver" {{auth()->user()->saver_mode == 'Extra Saver' ? 'selected' : ''}}>Extra Saver</option>
-                                <option value="Saver" {{auth()->user()->saver_mode == 'Saver' ? 'selected' : ''}}>Saver</option>
-                                <option value="No Saver" {{auth()->user()->saver_mode == 'No Saver' ? 'selected' : ''}}>No Saver</option>
-                            </select>
-                            <button class="btn btn-primary mt-3" type="submit" style="border-radius: 20px;">Update</button>
-                            <hr>
                             <h3 class="text-center mb-5"  style="color:white;"><i class="bi bi-pie-chart-fill"></i> Usage</h3>
                             <div class="row">
                                 
@@ -87,6 +78,18 @@
                                 </div> --}}
                                    
                             </div>
+                            
+                            <hr>
+                            <label>GPT API Key</label>
+                            <input name="api_key" type="text" class="form-control" value="{{auth()->user()->api_key}}" autocomplete="off"> 
+                            <br>
+                            <label>Saver Mode</label>
+                            <select name="saver_mode" class="form-control">
+                                <option value="Extra Saver" {{auth()->user()->saver_mode == 'Extra Saver' ? 'selected' : ''}}>Extra Saver</option>
+                                <option value="Saver" {{auth()->user()->saver_mode == 'Saver' ? 'selected' : ''}}>Saver</option>
+                                <option value="No Saver" {{auth()->user()->saver_mode == 'No Saver' ? 'selected' : ''}}>No Saver</option>
+                            </select>
+                            <button class="btn btn-primary mt-3" type="submit" style="border-radius: 20px;">Update</button>
                         </div>
                         
                     </div>
