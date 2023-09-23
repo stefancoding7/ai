@@ -4,6 +4,18 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="d-grid gap-2">
+                            <a href="{{route('conversations')}}" class="btn btn-info"> <- Conversations</a>
+                        </div>
+                        
+                    </div>
+                    <div class="col-6">
+                        <div class="d-grid gap-2 mb-2">
+                            <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}danger" style="{{$selected_gpt != 'create-image' ? 'color: black;' : ''}}">Create Image</button>
+                        </div>
+                        
+                    </div>
+                    <div class="col-6">
+                        <div class="d-grid gap-2">
                             <button wire:click="setSelected_gpt('gpt-4')" class="btn btn-{{$selected_gpt != 'gpt-4' ? 'outline-' : ''}}success">GPT 4</button>
                         </div>
                         
@@ -15,12 +27,7 @@
                         </div>
                         
                     </div>
-                    <div class="col-6">
-                        <div class="d-grid gap-2 mt-3">
-                            <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}danger" style="{{$selected_gpt != 'create-image' ? 'color: black;' : ''}}">Create Image</button>
-                        </div>
-                        
-                    </div>
+                    
                 </div>
                 
             </div>
@@ -62,8 +69,8 @@
                     Generate Response
                 </p>
             </div>
-            @livewire('chat-input')
+            @livewire('chat-input', ['slug' => $slug])
 
         </div>
-        @livewire('get-a-i-content')
+        @livewire('get-a-i-content', ['slug' => $slug])
     </div>

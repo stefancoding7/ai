@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Conversation;
+use App\Models\MessageAI;
+use Str;
 class HomeController extends Controller
 {
     /**
@@ -22,9 +24,24 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function chat($slug = null)
     {
-        return view('home');
+        
+
+        if(is_null($slug)){
+            $conversation = new Conversation;
+            $conversation->name = null;
+            $conversation->user_id = auth()->user()->id;
+            $conversation->long_id = Str::random(25);
+            $conversation->save();
+
+            return redirect()->route('chat', $conversation->long_id);
+        }
+
+        
+
+
+        return view('home',compact('slug'));
     }
 
     public function myAccount()
@@ -40,5 +57,24 @@ class HomeController extends Controller
         $user->save();
 
         return redirect()->back()->with('message', 'API KEY Updated');
+    }
+
+    public function conversations()
+    {
+        $conversations = Conversation::where('user_id', auth()->user()->id)->get();
+        $deleted = false;
+        foreach($conversations as $c){
+
+            if(is_null($c->name)){
+                $c->delete();
+                $deleted = true;
+                
+            }
+        }
+        if($deleted){
+            return redirect()->route('conversations');
+        }
+
+        return view('conversations', compact('conversations'));
     }
 }

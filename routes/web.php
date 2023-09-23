@@ -19,7 +19,8 @@ Route::get('/', function () {
 //Auth::routes();
 Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/chat/{slug?}', [App\Http\Controllers\HomeController::class, 'chat'])->name('chat');
+Route::get('/conversations', [App\Http\Controllers\HomeController::class, 'conversations'])->name('conversations');
 
 
 Route::get('/my-account', [App\Http\Controllers\HomeController::class, 'myAccount'])->name('my-account');

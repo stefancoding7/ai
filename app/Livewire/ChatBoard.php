@@ -18,25 +18,40 @@ class ChatBoard extends Component
     public $selected_gpt = 'gpt-4';
 
     public $messages;
-    
+    public $slug;
 
     protected $listeners = ['update-chat-board' => 'updateChatBoard'];
 
     public function mount()
     {
-        $this->messages = MessageAI::where('user_id', auth()->user()->id)->get();
-        $this->dispatch('set-selected-gpt', $this->selected_gpt);
+        $conversation = Conversation::where('long_id', $this->slug)->first();
+
+        if($conversation){
+            
+            $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->get();
+            $this->dispatch('set-selected-gpt', $this->selected_gpt);
+        }
+       
     }
 
     #[On('update-chat-board')] 
     public function updateChatBoard($model)
     {
-        $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('model', $model)->get();
+        $conversation = Conversation::where('long_id', $this->slug)->first();
 
-        if($this->messages->last()->role == 'user'){
-            
-            $this->dispatch('get-ai-content-gpt');
+        if($conversation){
+            $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('model', $model)->where('conversation_id', $conversation->id)->get();
         }
+        
+        if($this->messages->count() > 0){
+            if($this->messages->last()->role == 'user'){
+            
+                $this->dispatch('get-ai-content-gpt');
+            }
+
+            
+        }
+        
         
         // // Transform the collection into the desired format
         // $messageArray = $this->messages->map(function ($message) {
@@ -65,6 +80,7 @@ class ChatBoard extends Component
     {
         $this->selected_gpt = $type;
         $this->dispatch('set-selected-gpt', $this->selected_gpt);
+        $this->updateChatBoard($this->selected_gpt);
     }
 
     
