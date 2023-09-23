@@ -7,7 +7,7 @@
             <div class="col-md-8 col-xl-6 chat">
                 <form action="{{route('my-account-post')}}" method="post">
                     @csrf
-                    <div class="card">
+                    <div class="card" style="height: 100vh">
                         <div class="card-header msg_head">
                             <p>My Account</p>
                         </div>
