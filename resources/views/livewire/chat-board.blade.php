@@ -17,14 +17,14 @@
                     
                     <div class="col-4">
                         <div class="d-grid gap-2">
-                            <button wire:click="setSelected_gpt('gpt-4')" class="btn btn-{{$selected_gpt != 'gpt-4' ? 'outline-' : ''}}success" style="border-radius: 20px; {{$selected_gpt != 'gpt-4' ? 'color: black;' : ''}}">GPT 4</button>
+                            <button wire:click="setSelected_gpt('gpt-4')" class="btn btn-{{$selected_gpt != 'gpt-4' ? 'outline-' : ''}}success" style="border-radius: 20px; {{$selected_gpt != 'gpt-4' ? 'color: black;' : ''}}"><i class="bi bi-chat-text"></i> GPT 4</button>
                         </div>
                         
                     </div>
                     
                     <div class="col-4">
                         <div class="d-grid gap-2">
-                            <button wire:click="setSelected_gpt('gpt-3.5-turbo')" class="btn btn-{{$selected_gpt != 'gpt-3.5-turbo' ? 'outline-' : ''}}success" style="border-radius: 20px; {{$selected_gpt != 'gpt-3.5-turbo' ? 'color: black;' : ''}}">GPT 3.5</button>
+                            <button wire:click="setSelected_gpt('gpt-3.5-turbo')" class="btn btn-{{$selected_gpt != 'gpt-3.5-turbo' ? 'outline-' : ''}}success" style="border-radius: 20px; {{$selected_gpt != 'gpt-3.5-turbo' ? 'color: black;' : ''}}"><i class="bi bi-lightning-fill"></i> GPT 3.5</button>
                         </div>
                         
                     </div>
@@ -52,7 +52,7 @@
                                     <img src="{{$m->content}}" alt="image">
                                     <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
                                 @else
-                                    {{$m->content}}
+                                    {!!$m->styledContent()!!}
                                     <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
                                 @endif
                                 

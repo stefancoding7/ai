@@ -240,6 +240,14 @@
 		cursor: pointer;
 		background-color: rgba(0,0,0,0.2);
 	}
+	.code-block {
+        background-color: rgb(40, 40, 40);
+        color: white;
+		border-radius: 20px;
+        padding: 10px; /* Add some padding for readability */
+		margin-top: 10px;
+		margin-bottom: 10px;
+    }
 	@media(max-width: 576px){
 	.contacts_card{
 		margin-bottom: 15px !important;
@@ -316,5 +324,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     @livewireScripts
+	
 </body>
 </html>

@@ -16,4 +16,6 @@ class Conversation extends Model
     }
 
     
+
+
 }
