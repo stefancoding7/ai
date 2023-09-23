@@ -42,14 +42,14 @@
                             
                             <div class="msg_cotainer">
                                 {{$m->content}}
-                                
+
                             </div>
                         </div>
                     @else
                         <div class="d-flex justify-content-end mb-4">
                             <div class="msg_cotainer_send">
                                 {{$m->content}}
-                                
+                                <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
                             </div>
                             
                         </div>

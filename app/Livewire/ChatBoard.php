@@ -46,7 +46,7 @@ class ChatBoard extends Component
         if($this->messages->count() > 0){
             if($this->messages->last()->role == 'user'){
             
-                $this->dispatch('get-ai-content-gpt');
+                $this->dispatch('get-ai-content-gpt', $model);
             }
 
             

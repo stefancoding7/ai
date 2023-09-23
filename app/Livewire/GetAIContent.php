@@ -14,6 +14,7 @@ class GetAIContent extends Component
 
 
     public $slug;
+    
 
 
     public function render()
@@ -22,12 +23,13 @@ class GetAIContent extends Component
     }
 
     #[On('get-ai-content-gpt')] 
-    public function createGpt()
+    public function createGpt($selected_gpt)
     {
         
-        $messages = MessageAI::where('user_id', auth()->user()->id)->get();
-        $model = $messages->last()->model;
+        
         $conversation = Conversation::where('user_id', auth()->user()->id)->where('long_id', $this->slug)->first();
+        $messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->where('model', $selected_gpt)->get();
+        $model = $messages->last()->model;
          // Transform the collection into the desired format
         $messageArray = $messages->map(function ($message) {
             // Define the structure for each message
@@ -72,6 +74,9 @@ class GetAIContent extends Component
         $message->role = 'assistant';
         $message->model = $model;
         $message->content = $response->toArray()['choices'][0]['message']['content'];
+        $message->prompt_tokens = $response->usage->promptTokens;
+        $message->completion_tokens = $response->usage->completionTokens;
+        $message->total_tokens = $response->usage->totalTokens;
         $message->save();
 
         if(is_null($conversation->name)){
