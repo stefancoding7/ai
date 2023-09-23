@@ -9,6 +9,7 @@ use App\Models\Conversation;
 use App\Models\MessageAI;
 
 use OpenAI;
+
 class ChatBoard extends Component
 {
 
@@ -24,27 +25,34 @@ class ChatBoard extends Component
     public function mount()
     {
         $this->messages = MessageAI::where('user_id', auth()->user()->id)->get();
+        $this->dispatch('set-selected-gpt', $this->selected_gpt);
     }
 
     #[On('update-chat-board')] 
-    public function updateChatBoard()
+    public function updateChatBoard($model)
     {
-        $this->messages = MessageAI::where('user_id', auth()->user()->id)->get();
-        // Transform the collection into the desired format
-        $messageArray = $this->messages->map(function ($message) {
-            // Define the structure for each message
-            return [
-                'role' => $message->role, // Replace with the actual column name from your database
-                'content' => $message->content, // Replace with the actual column name from your database
-            ];
-        });
+        $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('model', $model)->get();
 
-        // If you want to convert the result to a standard array
-        $messageArray = $messageArray->toArray();
+        if($this->messages->last()->role == 'user'){
+            
+            $this->dispatch('get-ai-content-gpt');
+        }
+        
+        // // Transform the collection into the desired format
+        // $messageArray = $this->messages->map(function ($message) {
+        //     // Define the structure for each message
+        //     return [
+        //         'role' => $message->role, // Replace with the actual column name from your database
+        //         'content' => $message->content, // Replace with the actual column name from your database
+        //     ];
+        // });
+
+        // // If you want to convert the result to a standard array
+        // $messageArray = $messageArray->toArray();
         
         
-        $this->createGpt4($messageArray);
-        $this->messages = MessageAI::where('user_id', auth()->user()->id)->get();
+        // $this->createGpt4($messageArray);
+        // $this->messages = MessageAI::where('user_id', auth()->user()->id)->get();
 
     }
 
@@ -56,6 +64,7 @@ class ChatBoard extends Component
     public function setSelected_gpt($type)
     {
         $this->selected_gpt = $type;
+        $this->dispatch('set-selected-gpt', $this->selected_gpt);
     }
 
     

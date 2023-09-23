@@ -54,7 +54,7 @@
 
         </div>
         <div class="card-footer">
-            <div wire:loading  style="height: 30px; text-align: center;">
+            <div wire:loading wire:target="get-ai-content-gpt-4"  style="height: 30px; text-align: center;">
                 <p style="">
                     <div class="spinner-grow spinner-grow-sm" role="status">
                         <span class="visually-hidden">Loading...</span> 
@@ -65,4 +65,5 @@
             @livewire('chat-input')
 
         </div>
+        @livewire('get-a-i-content')
     </div>
