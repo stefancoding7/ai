@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="d-grid gap-2">
-                            <a href="{{route('conversations')}}" class="btn btn-info"> <i class="bi bi-arrow-90deg-left"></i> Conversations</a>
+                            <a href="{{route('conversations')}}" class="btn btn-info"> <i class="bi bi-arrow-90deg-left"></i></a>
                         </div>
                         
                     </div>
