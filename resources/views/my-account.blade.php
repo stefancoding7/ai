@@ -30,7 +30,8 @@
                                     <div class="text-center mb-5">
                                         <button type="button" class="btn btn-info position-relative" style="border-radius: 20px;">
                                         {{$gpt4TotalTokens}} tokens
-                                    
+                                            <br>
+                                            ${{number_format($gpt4Price, 2)}}
                                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                             GPT 4
                                             <span class="visually-hidden">unread messages</span>
@@ -45,7 +46,8 @@
                                     <div class="text-center mb-5">
                                         <button type="button" class="btn btn-info position-relative" style="border-radius: 20px;">
                                             {{$gpt35TotalTokens}} tokens
-                                        
+                                            <br>
+                                            ${{number_format($gpt35Price, 2)}}
                                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                             GPT 3.5
                                             <span class="visually-hidden">unread messages</span>
@@ -58,7 +60,8 @@
                                     <div class="text-center mb-5">
                                         <button type="button" class="btn btn-info position-relative" style="border-radius: 20px;">
                                             {{$createImageTotalTokens}} tokens
-                                        
+                                            <br>
+                                            ${{number_format($imagePrice, 2)}}
                                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                             Image Creation
                                             <span class="visually-hidden">unread messages</span>
@@ -66,6 +69,17 @@
                                         </button>
                                     </div>
                                 </div>
+                                {{-- <div class="col-md-4">
+                                    <div class="text-center mb-5">
+                                        <button type="button" class="btn btn-info position-relative" style="border-radius: 20px;">
+                                            ${{number_format($gpt4Price + $gpt35Price + $imagePrice, 2)}}
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                            Total
+                                            <span class="visually-hidden">unread messages</span>
+                                        </span>
+                                        </button>
+                                    </div>
+                                </div> --}}
                                    
                             </div>
                         </div>

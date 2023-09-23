@@ -49,7 +49,25 @@ class HomeController extends Controller
         $gpt4TotalTokens = MessageAI::where('user_id', auth()->user()->id)->where('model', 'gpt-4')->sum('total_tokens');
         $gpt35TotalTokens = MessageAI::where('user_id', auth()->user()->id)->where('model', 'gpt-3.5-turbo')->sum('total_tokens');
         $createImageTotalTokens = MessageAI::where('user_id', auth()->user()->id)->where('model', 'gpt-3.5-turbo')->sum('total_tokens');
-        return view('my-account', compact('gpt4TotalTokens', 'gpt35TotalTokens', 'createImageTotalTokens'));
+
+        $gpt4Price = $this->calculatePrice(0.12, $gpt4TotalTokens);
+        $gpt35Price = $this->calculatePrice(0.004, $gpt35TotalTokens);
+        $imagePrice = $this->calculatePrice(0.016, $createImageTotalTokens);
+
+        return view('my-account', compact('gpt4TotalTokens', 'gpt35TotalTokens', 'createImageTotalTokens', 'gpt4Price', 'gpt35Price', 'imagePrice'));
+    }
+
+    public function calculatePrice($tokenPrice, $tokens)
+    {
+        $rate_per_1000_tokens = $tokenPrice;
+
+        // Specify the number of tokens you used
+        $used_tokens = $tokens;
+
+        // Calculate the price
+        $price = ($used_tokens / 1000) * $rate_per_1000_tokens;
+
+        return $price;
     }
 
     public function myAccountPost(Request $request)
