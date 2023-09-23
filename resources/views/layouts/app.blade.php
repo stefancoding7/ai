@@ -34,6 +34,8 @@
 			height: 90vh;
 			border-radius: 15px !important;
 			background-color: rgba(0,0,0,0.4) !important;
+			width: 100%;
+			border: 0px;
 		}
 		.contacts_body{
 			padding:  0.75rem 0 !important;
