@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\Attributes\On; 
 
 use App\Models\Conversation;
-use App\Models\MessageAi;
+use App\Models\MessageAI;
 
 use OpenAI;
 class ChatBoard extends Component
@@ -23,13 +23,13 @@ class ChatBoard extends Component
 
     public function mount()
     {
-        $this->messages = MessageAi::where('user_id', auth()->user()->id)->get();
+        $this->messages = MessageAI::where('user_id', auth()->user()->id)->get();
     }
 
     #[On('update-chat-board')] 
     public function updateChatBoard()
     {
-        $this->messages = MessageAi::where('user_id', auth()->user()->id)->get();
+        $this->messages = MessageAI::where('user_id', auth()->user()->id)->get();
         // Transform the collection into the desired format
         $messageArray = $this->messages->map(function ($message) {
             // Define the structure for each message
@@ -44,7 +44,7 @@ class ChatBoard extends Component
         
         
         $this->createGpt4($messageArray);
-        $this->messages = MessageAi::where('user_id', auth()->user()->id)->get();
+        $this->messages = MessageAI::where('user_id', auth()->user()->id)->get();
 
     }
 

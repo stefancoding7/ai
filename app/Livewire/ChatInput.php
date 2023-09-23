@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 
 use App\Models\Conversation;
-use App\Models\MessageAi;
+use App\Models\MessageAI;
 
 class ChatInput extends Component
 {
@@ -21,7 +21,7 @@ class ChatInput extends Component
     public function submit()
     {
         //dd('test');
-        $message = new MessageAi;
+        $message = new MessageAI;
         $message->conversation_id = 1;
         $message->user_id = auth()->user()->id;
         $message->role = 'user';
