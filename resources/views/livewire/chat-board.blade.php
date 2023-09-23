@@ -2,7 +2,7 @@
         <div class="card-header msg_head">
             <div class="bd-highlight">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-2">
                         <div class="d-grid gap-2">
                             <a href="{{route('conversations')}}" class="btn btn-info"> <i class="bi bi-arrow-90deg-left"></i></a>
                         </div>
