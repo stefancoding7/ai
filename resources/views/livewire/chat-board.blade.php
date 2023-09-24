@@ -113,14 +113,14 @@
             </div>
             
         </div>
-        <div wire:poll.10s class="card-body msg_card_body " style="">
+        <div wire:poll.10s class="card-body msg_card_body p-2" style="">
             @if($messages)
                 @if($messages->count() > 0)
                     @foreach($messages as $m)
                         @if($m->role == 'user')
                             <div class="d-flex justify-content-start mb-2">
                                 
-                                <div class="msg_cotainer chat__message  chat__message_A" style="font-size: 13px; border-radius: 5px 20px 20px 20px;">
+                                <div class="msg_cotainer chat__message  chat__message_A" style="font-size: 13px; ">
                                     @if(!is_null($m->image))
                                         <img src="https://images.stefancoding.com/ai/chat-images/user-images/{{$conversation->long_id}}/{{$m->image}}" alt="image" style="border-radius: 15px;">
                                         {{$m->content}}
@@ -133,7 +133,7 @@
                             </div>
                         @else
                             <div class="d-flex justify-content-end mb-2">
-                                <div class="msg_cotainer_send chat__message  chat__message_A" style="font-size: 13px; border-radius: 20px 5px 20px 20px;">
+                                <div class="msg_cotainer_send chat__message  chat__message_A" style="font-size: 13px; ">
                                     @if($m->model == 'create-image')
                                         <img src="{{$m->content}}" alt="image" style="border-radius: 15px;">
 
@@ -159,7 +159,7 @@
             
 
         </div>
-        <div class="card-footer">
+        <div class="card-footer" style="background: ">
             @livewire('get-a-i-content', ['slug' => $slug])
             
             @livewire('chat-input', ['slug' => $slug])

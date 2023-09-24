@@ -22,9 +22,9 @@
         body,html{
 			height: 100%;
 			margin: 0;
-			background: #7F7FD5;
+			/* background: #7F7FD5;
 	       background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-	        background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+	        background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); */
 		}
 
 		.chat{
@@ -49,7 +49,7 @@
 		.card-header{
 			border-radius: 15px 15px 0 0 !important;
 			border-bottom: 0 !important;
-			background: grey;
+			/* background: grey; */
 		}
 	 .card-footer{
 		border-radius: 0 0 15px 15px !important;
@@ -174,7 +174,7 @@
 		margin-bottom: auto;
 		margin-left: 10px;
 		border-radius: 25px;
-		background-color: #82ccdd;
+		background-color: #e4e4e4;
 		padding: 10px;
 		position: relative;
 	}
@@ -183,7 +183,7 @@
 		margin-bottom: auto;
 		margin-right: 10px;
 		border-radius: 25px;
-		background-color: #78e08f;
+		background-color: #bedeff;
 		padding: 10px;
 		position: relative;
 		max-width: 85vw;
