@@ -63,11 +63,9 @@ class ChatInput extends Component
             $message->user_id = auth()->user()->id;
             $message->role = 'user';
             $message->model = $this->selected_gpt;
-            if($this->photo && is_null($this->out_message)){
-                $message->content = 'Create image variations';
-            } else {
-                $message->content = $this->out_message;
-            }
+            
+            $message->content = $this->out_message;
+           
             
             $message->save();
             
