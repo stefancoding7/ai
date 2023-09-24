@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/share/{slug?}', [App\Http\Controllers\ShareController::class, 'index'])->name('share.index');
+
 //Auth::routes();
 Auth::routes(['register' => false]);
 
