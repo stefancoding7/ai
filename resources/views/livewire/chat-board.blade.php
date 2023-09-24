@@ -102,7 +102,7 @@
                                 
                                 <div class="msg_cotainer chat__message  chat__message_A">
                                     @if(!is_null($m->image))
-                                        <img src="https://images.stefancoding.com/ai/chat-images/user-images/{{$conversation->long_id}}/{{$m->image}}" alt="image">
+                                        <img src="https://images.stefancoding.com/ai/chat-images/user-images/{{$conversation->long_id}}/{{$m->image}}" alt="image" style="border-radius: 15px;">
                                         {{$m->content}}
                                     @else
                                         {{$m->content}}
@@ -115,8 +115,9 @@
                             <div class="d-flex justify-content-end mb-4">
                                 <div class="msg_cotainer_send chat__message  chat__message_A">
                                     @if($m->model == 'create-image')
-                                        <img src="{{$m->content}}" alt="image">
-                                        <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
+                                        <img src="{{$m->content}}" alt="image" style="border-radius: 15px;">
+
+                                        
                                     @else
                                         
                                             {!! nl2br($m->styledContent()) !!}
