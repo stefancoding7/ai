@@ -31,13 +31,13 @@
     @endif
     
     <form wire:submit.prevent="submit">
-        <div class="input-group mb-3" style="height: 50px;">
+        <div class="input-group mb-3" style="height: 40px;">
             
                 <input wire:model="out_message" type="text" class="form-control" placeholder="Message..."  aria-describedby="button-addon2" style="border-radius: 20px 0 3px 20px;">
                 @if($selected_gpt == 'create-image')
                     <span class="input-group-text btn btn-outline-secondary" ><label><input type="file" wire:model="photo" style="display: none;"><i class="bi bi-image" style="font-size: 25px; color: white; margin-top: 15px; padding: 10px;"></label></i></span>
                 @endif
-                <button  class="btn btn-outline-secondary" type="submit" id="button-addon2" style="color: white; width: 60px; width: 80px; border-radius: 0px 20px 20px 0px;"><i class="bi bi-send"></i> Send</button>
+                <button  class="btn btn-outline-secondary" type="submit" id="button-addon2" style="color: white; width: 60px; width: 80px; border-radius: 0px 20px 20px 0px;"><i class="bi bi-send"></i></button>
             
         </div>
     </form>
