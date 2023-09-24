@@ -34,7 +34,7 @@
 		.card{
 			height: 90vh;
 			border-radius: 15px !important;
-			background-color: rgba(0,0,0,0.4) !important;
+			background-color: rgba(183, 206, 250, 0.4) !important;
 			width: 100%;
 			border: 0px;
 		}
