@@ -107,7 +107,7 @@
                 @if($messages->count() > 0)
                     @foreach($messages as $m)
                         @if($m->role == 'user')
-                            <div class="d-flex justify-content-start mb-4">
+                            <div class="d-flex justify-content-start mb-2">
                                 
                                 <div class="msg_cotainer chat__message  chat__message_A" style="font-size: 13px;">
                                     @if(!is_null($m->image))
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                         @else
-                            <div class="d-flex justify-content-end mb-4">
+                            <div class="d-flex justify-content-end mb-2">
                                 <div class="msg_cotainer_send chat__message  chat__message_A" style="font-size: 13px;">
                                     @if($m->model == 'create-image')
                                         <img src="{{$m->content}}" alt="image" style="border-radius: 15px;">
