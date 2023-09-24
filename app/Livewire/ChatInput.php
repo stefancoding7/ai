@@ -7,21 +7,38 @@ use Livewire\Component;
 use App\Models\Conversation;
 use App\Models\MessageAI;
 use Livewire\Attributes\On;
+use Livewire\WithFileUploads;
+use Livewire\Attributes\Rule;
 
 use Str;
 
 class ChatInput extends Component
 {
-
+    use WithFileUploads;
+    
     public $out_message;
     public $selected_gpt = 'gpt-4';
     public $slug;
+    public $photo;
 
     
     public function render()
     {
         
         return view('livewire.chat-input');
+    }
+
+    public function save()
+    {
+
+        $this->validate([
+
+            'photo' => 'image|max:1024', // 1MB Max
+
+        ]);
+
+        $this->photo->store('photos');
+
     }
 
     #[On('set-selected-gpt')]  
