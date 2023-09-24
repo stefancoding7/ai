@@ -58,25 +58,9 @@ class ChatInput extends Component
 
         if($this->selected_gpt){
             
-            if($this->photo){
-                $contents = Image::make($this->photo->getRealPath());
             
-                $extension = $this->getClientOriginalExtension();
-                $filename = Str::random(20).'.'.$extension;
 
-                $background = Image::canvas(1000, 1000);
-                                                
-                                                
-                $contents->resize(256, 256, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                })->stream();
-
-                
-                Storage::disk('ftp_images')->put('chat-images/user-images'.$filename, $contents );
-            }
-
-            dd('st');
+            
 
 
             $conversation = Conversation::where('user_id', auth()->user()->id)->where('long_id', $this->slug)->first();
@@ -88,6 +72,27 @@ class ChatInput extends Component
             $message->content = $this->out_message;
             $message->save();
             $this->out_message = '';
+
+            if($this->photo){
+                $contents = Image::make($this->photo->getRealPath());
+            
+                $extension = $this->photo->getClientOriginalExtension();
+                $filename = Str::random(20).'.'.$extension;
+
+                $background = Image::canvas(1000, 1000);
+                                                
+                                                
+                $contents->resize(256, 256, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->stream();
+
+                
+                Storage::disk('ftp_images')->put('chat-images/user-images/'.$conversation->long_id.'/'.$filename, $contents );
+                $message->image = $filename;
+                $message->save();
+            }
+            
             $this->dispatch('update-chat-board', $message->model);
         } else {
             dd('type not');
