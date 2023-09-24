@@ -81,6 +81,12 @@ class ChatBoard extends Component
 
     public function render()
     {
+
+        $conversation = Conversation::where('long_id', $this->slug)->first();
+       
+        if($conversation){
+            $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('model', $this->selected_gpt)->where('conversation_id', $conversation->id)->get();
+        }
         return view('livewire.chat-board');
     }
 
