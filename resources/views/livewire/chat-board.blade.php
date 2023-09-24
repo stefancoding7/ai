@@ -51,7 +51,7 @@
     }
     100% {
         transform: scale(1);
-        max-height: 100vmax;
+        /* max-height: 100vmax; */
         overflow: visible;
         
     }
@@ -93,7 +93,7 @@
             </div>
             
         </div>
-        <div class="card-body msg_card_body d-flex flex-column justify-content-end">
+        <div class="card-body msg_card_body " style="">
             @if($messages->count() > 0)
                 @foreach($messages as $m)
                     @if($m->role == 'user')
@@ -111,7 +111,10 @@
                                     <img src="{{$m->content}}" alt="image">
                                     <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
                                 @else
-                                    {!!$m->styledContent()!!}
+                                    
+                                        {!!$m->styledContent()!!}
+                                    
+                                    
                                     <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
                                 @endif
                                 

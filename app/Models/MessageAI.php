@@ -15,6 +15,10 @@ class MessageAI extends Model
         // Get the content from the model instance
         $content = $this->content;
 
+        $contect = str_replace("<","&lt;",$content);
+        $contect = str_replace(">","&gt;",$content);
+
+
         // Define the CSS class for code blocks
         $codeBlockClass = 'code-block';
 
@@ -24,7 +28,7 @@ class MessageAI extends Model
         // Replace code blocks with styled <pre> tags
         $styledContent = preg_replace_callback($pattern, function ($matches) use ($codeBlockClass) {
             // Wrap the matched code block in <pre> tags with the specified class
-            return '<doce><pre class="' . $codeBlockClass . '">' . htmlspecialchars($matches[1]) . '</pre></doce>';
+            return '<code><pre class="' . $codeBlockClass . '">' . htmlspecialchars($matches[1]) . '</pre></code>';
         }, $content);
 
         return $styledContent;
