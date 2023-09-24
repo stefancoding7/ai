@@ -112,7 +112,7 @@
                                     <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
                                 @else
                                     
-                                        {!!$m->styledContent()!!}
+                                        {!! nl2br($m->styledContent()) !!}
                                     
                                     
                                     <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
