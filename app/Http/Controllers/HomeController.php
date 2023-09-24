@@ -87,7 +87,7 @@ class HomeController extends Controller
         $deleted = false;
         foreach($conversations as $c){
 
-            if(is_null($c->name)){
+            if(is_null($c->name) && is_null($c->image)){
                 $c->delete();
                 $deleted = true;
                 
