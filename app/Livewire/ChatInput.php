@@ -32,14 +32,7 @@ class ChatInput extends Component
         return view('livewire.chat-input');
     }
 
-    public function save()
-    {
-
-        
-
-        $this->photo->store('photos');
-
-    }
+    
 
     #[On('set-selected-gpt')]  
     public function setSelected_gpt($type)
@@ -64,6 +57,7 @@ class ChatInput extends Component
 
 
             $conversation = Conversation::where('user_id', auth()->user()->id)->where('long_id', $this->slug)->first();
+            
             $message = new MessageAI;
             $message->conversation_id = $conversation->id;
             $message->user_id = auth()->user()->id;
@@ -71,15 +65,15 @@ class ChatInput extends Component
             $message->model = $this->selected_gpt;
             $message->content = $this->out_message;
             $message->save();
-            $this->out_message = '';
+            
 
             if($this->photo){
-                $contents = Image::make($this->photo->getRealPath());
+                $contents = Image::make($this->photo->getRealPath())->encode('png', 75);;
             
-                $extension = $this->photo->getClientOriginalExtension();
-                $filename = Str::random(20).'.'.$extension;
+                
+                $filename = Str::random(20).'.png';
 
-                $background = Image::canvas(1000, 1000);
+                
                                                 
                                                 
                 $contents->resize(256, 256, function ($constraint) {
@@ -92,7 +86,8 @@ class ChatInput extends Component
                 $message->image = $filename;
                 $message->save();
             }
-            
+            $this->out_message = '';
+            $this->photo = null;
             $this->dispatch('update-chat-board', $message->model);
         } else {
             dd('type not');

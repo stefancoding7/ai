@@ -14,7 +14,7 @@ class GetAIContent extends Component
 
 
     public $slug;
-    
+    public $image_url = 'https://images.stefancoding.com/ai/chat-images/user-images';
 
 
     public function render()
@@ -33,12 +33,27 @@ class GetAIContent extends Component
             ->withApiKey($apikey)
             //->withBaseUri('api.openai.com/v1/chat') // default: api.openai.com/v1
             ->make();
-        $response = $client->images()->create([
-            'prompt' => $messages->content,
-            'n' => 1,
-            'size' => '256x256',
-            'response_format' => 'url',
-        ]);
+
+        if(is_null($messages->image)){
+            $response = $client->images()->create([
+                'prompt' => $messages->content,
+                'n' => 1,
+                'size' => '256x256',
+                'response_format' => 'url',
+            ]);
+
+        } else {
+            $response = $client->images()->edit([
+                'image' => fopen($this->image_url.'/'.$conversation->long_id.'/'.$messages->image, 'r'),
+                'mask' => fopen($this->image_url.'/'.$conversation->long_id.'/'.$messages->image, 'r'),
+                'prompt' => $messages->content,
+                'n' => 1,
+                'size' => '256x256',
+                'response_format' => 'url',
+            ]);
+
+        }
+        
 
         $response->created; // 1589478378
 

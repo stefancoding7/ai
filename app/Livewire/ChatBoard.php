@@ -19,16 +19,17 @@ class ChatBoard extends Component
 
     public $messages;
     public $slug;
+    public $conversation;
 
     //protected $listeners = ['update-chat-board' => 'updateChatBoard'];
 
     public function mount()
     {
-        $conversation = Conversation::where('long_id', $this->slug)->first();
+        $this->conversation = Conversation::where('long_id', $this->slug)->first();
 
-        if($conversation){
+        if($this->conversation){
             
-            $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('model', $this->selected_gpt)->where('conversation_id', $conversation->id)->get();
+            $this->messages = MessageAI::where('user_id', auth()->user()->id)->where('model', $this->selected_gpt)->where('conversation_id', $this->conversation->id)->get();
             $this->dispatch('set-selected-gpt', $this->selected_gpt);
         }
        

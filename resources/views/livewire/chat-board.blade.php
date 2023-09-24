@@ -101,7 +101,13 @@
                             <div class="d-flex justify-content-start mb-4">
                                 
                                 <div class="msg_cotainer chat__message  chat__message_A">
-                                    {{$m->content}}
+                                    @if(!is_null($m->image))
+                                        <img src="https://images.stefancoding.com/ai/chat-images/user-images/{{$conversation->long_id}}/{{$m->image}}" alt="image">
+                                        {{$m->content}}
+                                    @else
+                                        {{$m->content}}
+                                    @endif
+                                    
 
                                 </div>
                             </div>

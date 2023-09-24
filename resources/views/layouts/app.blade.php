@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+	<meta name="apple-mobile-web-app-capable" content="yes">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
