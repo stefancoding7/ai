@@ -93,7 +93,7 @@
             </div>
             
         </div>
-        <div wire:poll.keep-alive class="card-body msg_card_body " style="">
+        <div wire:poll.2s="updateChatBoardNoAI({{$selected_gpt}})" class="card-body msg_card_body " style="">
             @if($messages->count() > 0)
                 @foreach($messages as $m)
                     @if($m->role == 'user')
