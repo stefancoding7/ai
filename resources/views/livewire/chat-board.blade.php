@@ -94,37 +94,40 @@
             
         </div>
         <div wire:poll.10s class="card-body msg_card_body " style="">
-            @if($messages->count() > 0)
-                @foreach($messages as $m)
-                    @if($m->role == 'user')
-                        <div class="d-flex justify-content-start mb-4">
-                            
-                            <div class="msg_cotainer chat__message  chat__message_A">
-                                {{$m->content}}
+            @if($messages)
+                @if($messages->count() > 0)
+                    @foreach($messages as $m)
+                        @if($m->role == 'user')
+                            <div class="d-flex justify-content-start mb-4">
+                                
+                                <div class="msg_cotainer chat__message  chat__message_A">
+                                    {{$m->content}}
 
+                                </div>
                             </div>
-                        </div>
-                    @else
-                        <div class="d-flex justify-content-end mb-4">
-                            <div class="msg_cotainer_send chat__message  chat__message_A">
-                                @if($m->model == 'create-image')
-                                    <img src="{{$m->content}}" alt="image">
-                                    <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
-                                @else
+                        @else
+                            <div class="d-flex justify-content-end mb-4">
+                                <div class="msg_cotainer_send chat__message  chat__message_A">
+                                    @if($m->model == 'create-image')
+                                        <img src="{{$m->content}}" alt="image">
+                                        <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
+                                    @else
+                                        
+                                            {!! nl2br($m->styledContent()) !!}
+                                        
+                                        
+                                        <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
+                                    @endif
                                     
-                                        {!! nl2br($m->styledContent()) !!}
-                                    
-                                    
-                                    <p style="text-align: right; font-size: 10px; margin-top: 10px;">Total tokens used: <b>{{$m->total_tokens}}</b></p>
-                                @endif
+                                </div>
                                 
                             </div>
-                            
-                        </div>
-                    @endif
-                    
-                @endforeach
+                        @endif
+                        
+                    @endforeach
+                @endif
             @endif
+            
             
             
 
