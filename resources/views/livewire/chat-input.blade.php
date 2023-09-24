@@ -37,7 +37,7 @@
                 @if($selected_gpt == 'create-image')
                     <span class="input-group-text btn btn-outline-secondary" ><label><input type="file" wire:model="photo" style="display: none;"><i class="bi bi-image" style="font-size: 25px; color: white; margin-top: 15px; padding: 10px;"></label></i></span>
                 @endif
-                <button  class="btn btn-outline-secondary" type="submit" id="button-addon2" style="color: white; width: 60px; width: 80px; border-radius: 0px 20px 20px 0px;"><i class="bi bi-send"></i></button>
+                <button  class="btn btn-outline-secondary" type="submit" id="button-addon2" style="color: white; width: 60px; width: 70px; border-radius: 0px 20px 20px 0px;"><i class="bi bi-send"></i></button>
             
         </div>
     </form>
