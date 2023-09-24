@@ -90,7 +90,7 @@
                     <div class="col-1 m-0 p-0">
                         {{-- <div class="d-grid gap-2 mb-2"> --}}
                             <div style="text-align: right;">
-                                <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}success" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'create-image' ? 'color: black;' : ''}}" ><i class="bi bi-share"></i></button>
+                                <button  class="btn btn-outline-success" style="border-radius: 20px; font-size: 12px; " ><i class="bi bi-share"></i></button>
                             </div>
                             
                         {{-- </div> --}}
