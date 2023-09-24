@@ -26,7 +26,7 @@ class GetAIContent extends Component
     public function createImage($selected_gpt)
     {
         $conversation = Conversation::where('user_id', auth()->user()->id)->where('long_id', $this->slug)->first();
-        
+        $image_resolution = auth()->user()->image_resolution;
         $messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->where('model', $selected_gpt)->orderBy('id', 'desc')->first();
         $apikey = auth()->user()->api_key;
         $client = OpenAI::factory()
@@ -38,7 +38,7 @@ class GetAIContent extends Component
             $response = $client->images()->create([
                 'prompt' => $messages->content,
                 'n' => 1,
-                'size' => '256x256',
+                'size' => $image_resolution,
                 'response_format' => 'url',
             ]);
 
@@ -47,7 +47,7 @@ class GetAIContent extends Component
                 $response = $client->images()->variation([
                     'image' => fopen($this->image_url.'/'.$conversation->long_id.'/'.$messages->image, 'r'),
                     'n' => 1,
-                    'size' => '256x256',
+                    'size' => $image_resolution,
                     'response_format' => 'url',
                 ]);
             } else {
@@ -57,7 +57,7 @@ class GetAIContent extends Component
                     // 'mask' => fopen($this->image_url.'/'.$conversation->long_id.'/'.$messages->image, 'r'),
                     'prompt' => $messages->content,
                     'n' => 1,
-                    'size' => '256x256',
+                    'size' => $image_resolution,
                     'response_format' => 'url',
                 ]);
             }

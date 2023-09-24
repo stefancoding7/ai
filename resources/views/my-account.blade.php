@@ -35,23 +35,23 @@
                             @endif
                             <h3 class="text-center mb-5"  style="color:white;"><i class="bi bi-pie-chart-fill"></i> Usage</h3>
                             <table id="stacked-example-1" class="charts-css bar hide-data show-labels multiple stacked show-data-axes">
-  <tbody>
-    <tr>
-      <td style="--size: calc(350 / 100);"><span class="data"> 350 </span></td>
-      <td style="--size: calc(250 / 100);"><span class="data"> 250 </span></td>
-      <td style="--size: calc(5530 / 100);"><span class="data"> 5530 </span></td>
-    </tr>
-  </tbody>
-</table>
-<div style="display:flex; justify-content: center; margin-top: 5px;">
-  <div style="height:15px; width:15px; background-color: rgba(13, 202, 240, 0.6); margin-right: 5px"></div>
-  <span class="text1" style="margin-right: 10px"> 350 </span>
-  <div style="height:15px; width:15px; background-color: rgba(255, 193, 7, 0.6); margin-right: 5px"></div>
-  <span class="text2" style="margin-right: 10px"> 250 </span>
-  <div style="height:15px; width:15px; background-color: rgba(220,  53, 69, 0.6); margin-right: 5px"></div>
-  <span class="text3"> 5530 </span>
-</div>
-<br> <br>
+                                <tbody>
+                                    <tr>
+                                    <td style="--size: calc(350 / 100);"><span class="data"> 350 </span></td>
+                                    <td style="--size: calc(250 / 100);"><span class="data"> 250 </span></td>
+                                    <td style="--size: calc(5530 / 100);"><span class="data"> 5530 </span></td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                                <div style="display:flex; justify-content: center; margin-top: 5px;">
+                                <div style="height:15px; width:15px; background-color: rgba(13, 202, 240, 0.6); margin-right: 5px"></div>
+                                <span class="text1" style="margin-right: 10px"> 350 </span>
+                                <div style="height:15px; width:15px; background-color: rgba(255, 193, 7, 0.6); margin-right: 5px"></div>
+                                <span class="text2" style="margin-right: 10px"> 250 </span>
+                                <div style="height:15px; width:15px; background-color: rgba(220,  53, 69, 0.6); margin-right: 5px"></div>
+                                <span class="text3"> 5530 </span>
+                                </div>
+                                <br> <br>
                             <div class="row">
                                 
                                
@@ -121,6 +121,13 @@
                                 <option value="Extra Saver" {{auth()->user()->saver_mode == 'Extra Saver' ? 'selected' : ''}}>Extra Saver</option>
                                 <option value="Saver" {{auth()->user()->saver_mode == 'Saver' ? 'selected' : ''}}>Saver</option>
                                 <option value="No Saver" {{auth()->user()->saver_mode == 'No Saver' ? 'selected' : ''}}>No Saver</option>
+                            </select>
+                            <br>
+                            <label>Image Resolution</label>
+                            <select name="image_resolution" class="form-control">
+                                <option value="256x256" {{auth()->user()->image_resolution == '256x256' ? 'selected' : ''}}>256x256px</option>
+                                <option value="512×512" {{auth()->user()->image_resolution == '512×512' ? 'selected' : ''}}>512×512px</option>
+                                <option value="1024×1024" {{auth()->user()->image_resolution == '1024×1024' ? 'selected' : ''}}>1024×1024px</option>
                             </select>
                             <button class="btn btn-primary mt-3" type="submit" style="border-radius: 20px;">Update</button>
                         </div>
