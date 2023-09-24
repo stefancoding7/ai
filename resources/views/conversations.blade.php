@@ -5,7 +5,7 @@
         <div class="row justify-content-center h-100">
 
             <div class="col-md-8 col-xl-6 chat">
-                <ol class="list-group list-group-numbered" style="border-radius: 20px;">
+                <ol class="list-group list-group-numbered" style="border-radius: 20px; background-color: rgba(183, 206, 250, 0.4) !important;">
                     @foreach($conversations as $conv)
                         <a href="{{route('chat', $conv->long_id)}}"  class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">

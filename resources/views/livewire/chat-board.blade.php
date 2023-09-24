@@ -72,7 +72,7 @@
                             <div class="col-4 m-0 p-0">
                                     {{-- <div class="d-grid gap-2 mb-2"> --}}
                                         <div style="text-align: right;">
-                                            <button  class="btn btn-outline-success" style="border-radius: 20px; font-size: 12px; " ><i class="bi bi-share"></i></button>
+                                            <button  class="btn btn-outline-info" style="border-radius: 20px; font-size: 12px; " ><i class="bi bi-share"></i></button>
                                         </div>
                                         
                                     {{-- </div> --}}
@@ -84,20 +84,20 @@
                         <div class="row">
                             <div class="col-4 m-0 p-0">
                                 <div class="d-grid gap-2 mb-2">
-                                    <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}success" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'create-image' ? 'color: black;' : ''}}" ><i class="bi bi-image"></i></button>
+                                    <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}info" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'create-image' ? 'color: black;' : ''}}" ><i class="bi bi-image"></i></button>
                                 </div>
                                 
                             </div>
                             <div class="col-4 m-0 p-0">
                                 <div class="d-grid gap-2">
-                                    <button wire:click="setSelected_gpt('gpt-4')" class="btn btn-{{$selected_gpt != 'gpt-4' ? 'outline-' : ''}}success" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'gpt-4' ? 'color: black;' : ''}}">GPT 4</button>
+                                    <button wire:click="setSelected_gpt('gpt-4')" class="btn btn-{{$selected_gpt != 'gpt-4' ? 'outline-' : ''}}info" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'gpt-4' ? 'color: black;' : ''}}">GPT 4</button>
                                 </div>
                                 
                             </div>
                             
                             <div class="col-4 m-0 p-0">
                                 <div class="d-grid gap-2">
-                                    <button wire:click="setSelected_gpt('gpt-3.5-turbo')" class="btn btn-{{$selected_gpt != 'gpt-3.5-turbo' ? 'outline-' : ''}}success" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'gpt-3.5-turbo' ? 'color: black;' : ''}}">GPT 3.5</button>
+                                    <button wire:click="setSelected_gpt('gpt-3.5-turbo')" class="btn btn-{{$selected_gpt != 'gpt-3.5-turbo' ? 'outline-' : ''}}info" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'gpt-3.5-turbo' ? 'color: black;' : ''}}">GPT 3.5</button>
                                 </div>
                                 
                             </div>
