@@ -25,7 +25,7 @@
                                     
                                 @endforeach
                             </div>
-                            <span class="badge bg-primary rounded-pill">{{$conv->messagesAI->count()}}</span>
+                            <span class="badge bg-info rounded-pill">{{$conv->messagesAI->count()}}</span>
                         </a>
                     @endforeach
                 </ol>   
