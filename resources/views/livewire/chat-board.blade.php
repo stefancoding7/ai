@@ -93,7 +93,7 @@
             </div>
             
         </div>
-        <div class="card-body msg_card_body " style="">
+        <div class="card-body msg_card_body wire:poll.2s" style="">
             @if($messages->count() > 0)
                 @foreach($messages as $m)
                     @if($m->role == 'user')
