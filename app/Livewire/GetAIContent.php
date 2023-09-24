@@ -43,14 +43,26 @@ class GetAIContent extends Component
             ]);
 
         } else {
-            $response = $client->images()->edit([
-                'image' => fopen($this->image_url.'/'.$conversation->long_id.'/'.$messages->image, 'r'),
-                // 'mask' => fopen($this->image_url.'/'.$conversation->long_id.'/'.$messages->image, 'r'),
-                'prompt' => $messages->content,
-                'n' => 1,
-                'size' => '256x256',
-                'response_format' => 'url',
-            ]);
+            if(is_null($messages->content)){
+                $response = $client->images()->variation([
+                    'image' => fopen($this->image_url.'/'.$conversation->long_id.'/'.$messages->image, 'r'),
+                    'n' => 1,
+                    'size' => '256x256',
+                    'response_format' => 'url',
+                ]);
+            } else {
+
+                $response = $client->images()->edit([
+                    'image' => fopen($this->image_url.'/'.$conversation->long_id.'/'.$messages->image, 'r'),
+                    // 'mask' => fopen($this->image_url.'/'.$conversation->long_id.'/'.$messages->image, 'r'),
+                    'prompt' => $messages->content,
+                    'n' => 1,
+                    'size' => '256x256',
+                    'response_format' => 'url',
+                ]);
+            }
+            
+
 
         }
         
