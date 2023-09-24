@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    #stacked-example-1 {
+  height: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  --heading-size: 2.5rem;
+  --color-1: rgba(13, 202, 240, 0.6);
+  --color-2: rgba(255, 193, 7, 0.6);
+  --color-3: rgba(220,  53, 69, 0.6);
+  overflow: hidden;
+}
+#stacked-example-1 caption {
+  font-weight: bold;
+}
+</style>
     <div class="container-fluid h-100">
         <div class="row justify-content-center h-100">
 
@@ -19,6 +34,24 @@
 
                             @endif
                             <h3 class="text-center mb-5"  style="color:white;"><i class="bi bi-pie-chart-fill"></i> Usage</h3>
+                            <table id="stacked-example-1" class="charts-css bar hide-data show-labels multiple stacked show-data-axes">
+  <tbody>
+    <tr>
+      <td style="--size: calc(350 / 100);"><span class="data"> 350 </span></td>
+      <td style="--size: calc(250 / 100);"><span class="data"> 250 </span></td>
+      <td style="--size: calc(5530 / 100);"><span class="data"> 5530 </span></td>
+    </tr>
+  </tbody>
+</table>
+<div style="display:flex; justify-content: center; margin-top: 5px;">
+  <div style="height:15px; width:15px; background-color: rgba(13, 202, 240, 0.6); margin-right: 5px"></div>
+  <span class="text1" style="margin-right: 10px"> 350 </span>
+  <div style="height:15px; width:15px; background-color: rgba(255, 193, 7, 0.6); margin-right: 5px"></div>
+  <span class="text2" style="margin-right: 10px"> 250 </span>
+  <div style="height:15px; width:15px; background-color: rgba(220,  53, 69, 0.6); margin-right: 5px"></div>
+  <span class="text3"> 5530 </span>
+</div>
+<br> <br>
                             <div class="row">
                                 
                                

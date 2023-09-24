@@ -11,14 +11,18 @@ use Livewire\WithFileUploads;
 use Livewire\Attributes\Rule;
 
 use Str;
+use Image;
+use Storage;
 
 class ChatInput extends Component
 {
     use WithFileUploads;
-    
+
     public $out_message;
     public $selected_gpt = 'gpt-4';
     public $slug;
+
+    #[Rule('image|max:1024')]
     public $photo;
 
     
@@ -31,11 +35,7 @@ class ChatInput extends Component
     public function save()
     {
 
-        $this->validate([
-
-            'photo' => 'image|max:1024', // 1MB Max
-
-        ]);
+        
 
         $this->photo->store('photos');
 
@@ -58,6 +58,27 @@ class ChatInput extends Component
 
         if($this->selected_gpt){
             
+            if($this->photo){
+                $contents = Image::make($this->photo->getRealPath());
+            
+                $extension = $this->getClientOriginalExtension();
+                $filename = Str::random(20).'.'.$extension;
+
+                $background = Image::canvas(1000, 1000);
+                                                
+                                                
+                $contents->resize(256, 256, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->stream();
+
+                
+                Storage::disk('ftp_images')->put('chat-images/user-images'.$filename, $contents );
+            }
+
+            dd('st');
+
+
             $conversation = Conversation::where('user_id', auth()->user()->id)->where('long_id', $this->slug)->first();
             $message = new MessageAI;
             $message->conversation_id = $conversation->id;

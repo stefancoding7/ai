@@ -43,6 +43,16 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'ftp_images' => [
+            'driver' => 'ftp',
+            'host' => env('APP_FTP_IMAGES_HOST'),
+            'username' => env('APP_FTP_IMAGES_USERNAME'),
+            'password' => env('APP_FTP_IMAGES_PASSWORD'),
+            // 'root' => '/pazickart',
+            //'port' => 2020,
+            'directoryPerm' => 0775,
+            
+        ],
 
         's3' => [
             'driver' => 's3',

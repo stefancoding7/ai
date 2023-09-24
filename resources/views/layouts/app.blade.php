@@ -16,7 +16,8 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <!-- Scripts -->
-	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         body,html{
 			height: 100%;
