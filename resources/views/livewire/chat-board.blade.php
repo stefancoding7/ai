@@ -155,7 +155,7 @@
                     @if($show_loading)
                         <div class="d-flex justify-content-end mb-2">
                             <div class="msg_cotainer_send chat__message  chat__message_A" style="font-size: 13px; width: 45px; background: transparent;">
-                                <a class="editInfo">
+                                <a class="editInfo" style="margin-top: 10px;">
                                     <i class="icon-pencil"></i> 
                                 </a>  
                             </div>
