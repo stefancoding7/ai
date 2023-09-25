@@ -96,6 +96,8 @@ class GetAIContent extends Component
         $this->dispatch('update-chat-board', $message->model);
     }
 
+
+
     #[On('get-ai-content-gpt')] 
     public function createGpt($selected_gpt)
     {
@@ -167,7 +169,7 @@ class GetAIContent extends Component
 
         
         $this->dispatch('update-chat-board', $message->model);
-
+        $this->dispatch('set-show-loading', false);
 
     }
 

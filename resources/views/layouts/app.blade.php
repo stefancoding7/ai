@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <!-- Scripts -->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -251,6 +251,359 @@
 		margin-top: 10px;
 		margin-bottom: 10px;
     }
+
+
+	/* loading pencil icon */
+	.editInfo{
+  width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	position: absolute;
+  z-index:10;
+	left: 50%;
+  top:50%;
+	display: block;
+	background: #fdb833;
+	margin: -25px 0 0 -25px;
+	color: #6d4a07;
+	line-height: 25px;
+	font-size: 25px;
+	text-align: center;
+  -webkit-animation: ring-button 3s infinite; 
+	-moz-animation:    ring-button 3s infinite;
+	-o-animation:      ring-button 3s infinite;
+	animation:         ring-button 3s infinite;
+}
+.icon-pencil{
+  font-weight:bold;
+  font-size:17px;
+  color:#7f580d;
+  text-align:center;
+  margin-top:-10px;
+}
+.editInfo:after{
+  background:rgba(253, 184, 51, 0.25);
+  border: solid 1px rgba(253, 184, 51, 0.25);
+	position: absolute;
+  z-index:-1;
+	left: 0;
+	top: 0;
+	width: 30px;
+	height: 30px;
+	content: "";
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-animation: ring-line 2.95s infinite; 
+	-moz-animation:    ring-line 2.95s infinite;
+	-o-animation:      ring-line 2.95s infinite;
+	animation:         ring-line 2.95s infinite;
+} 
+.editInfo:before{
+  background:rgba(242, 166, 20, 0.9);
+  border: solid 1px rgba(242, 166, 20, 1);
+	position: absolute;
+  z-index:-1;
+	left: 50%;
+	top: 50%;
+  margin:-15px 0 0 -15px;
+	width: 30px;
+	height: 30px;
+	content: "";
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-animation: ring-line 2.90s infinite; 
+	-moz-animation:    ring-line 2.90s infinite;
+	-o-animation:      ring-line 2.90s infinite;
+	animation:         ring-line 2.90s infinite;
+} 
+
+/* round outline ===========================*/
+@-webkit-keyframes ring-line {
+  0%   { 
+	 -webkit-transform: scale(1.2);  
+     -ms-transform: scale(1.2); 
+     transform: scale(1.2);
+	 opacity: 1;
+  }
+  90% { 
+	-webkit-transform: scale(1.4);  
+    -ms-transform: scale(1.4); 
+    transform: scale(1.4);
+	opacity: 0;
+  }
+   100%   { 
+	 -webkit-transform: scale(1.2);  
+     -ms-transform: scale(1.2); 
+     transform: scale(1.2);
+	 opacity: 0;
+  }
+}
+@-moz-keyframes  ring-line {
+  0%   { 
+	 -webkit-transform: scale(1.2);  
+     -ms-transform: scale(1.2); 
+     transform: scale(1.2);
+	 opacity: 1;
+  }
+  90% { 
+	-webkit-transform: scale(1.4);  
+    -ms-transform: scale(1.4); 
+    transform: scale(1.4);
+	opacity: 0;
+  }
+   100%   { 
+	 -webkit-transform: scale(1.2);  
+     -ms-transform: scale(1.2); 
+     transform: scale(1.2);
+	 opacity: 0;
+  }
+}
+@-o-keyframes ring-line {
+   0%   { 
+	 -webkit-transform: scale(1.2);  
+     -ms-transform: scale(1.2); 
+     transform: scale(1.2);
+	 opacity: 1;
+  }
+  90% { 
+	-webkit-transform: scale(1.4);  
+    -ms-transform: scale(1.4); 
+    transform: scale(1.4);
+	opacity: 0;
+  }
+   100%   { 
+	 -webkit-transform: scale(1.2);  
+     -ms-transform: scale(1.2); 
+     transform: scale(1.2);
+	 opacity: 0;
+  }
+}
+@keyframes  ring-line {
+   0%   { 
+	 -webkit-transform: scale(1.2);  
+     -ms-transform: scale(1.2); 
+     transform: scale(1.2);
+	 opacity: 1;
+  }
+  90% { 
+	-webkit-transform: scale(1.4);  
+    -ms-transform: scale(1.4); 
+    transform: scale(1.4);
+	opacity: 0;
+  }
+   100%   { 
+	 -webkit-transform: scale(1.2);  
+     -ms-transform: scale(1.2); 
+     transform: scale(1.2);
+	 opacity: 0;
+  }
+}
+
+/* round animation ===========================*/
+@-webkit-keyframes ring-button {
+   0%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+  10%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+  50% { 
+	-webkit-transform: scale(1.4);  
+    -ms-transform: scale(1.4); 
+    transform: scale(1.4);
+  }
+   100%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+}
+@-moz-keyframes  ring-button {
+   0%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+  10%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+  50% { 
+	-webkit-transform: scale(1.4);  
+    -ms-transform: scale(1.4); 
+    transform: scale(1.4);
+  }
+   100%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+}
+@-o-keyframes ring-button {
+  0%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+  10%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+  50% { 
+	-webkit-transform: scale(1.4);  
+    -ms-transform: scale(1.4); 
+    transform: scale(1.4);
+  }
+   100%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+}
+@keyframes  ring-button {
+ 0%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+  10%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+  50% { 
+	-webkit-transform: scale(1.4);  
+    -ms-transform: scale(1.4); 
+    transform: scale(1.4);
+  }
+   100%   { 
+	 -webkit-transform: scale(1);  
+     -ms-transform: scale(1); 
+     transform: scale(1);
+  }
+}
+
+/* round outline ===========================*/
+@-webkit-keyframes ring-white {
+   0%   { 
+	 -webkit-transform: scale(1.4);  
+     -ms-transform: scale(1.4); 
+     transform: scale(1.4);
+	 opacity: 1;
+  }
+  50% { 
+	-webkit-transform: scale(1.2);  
+    -ms-transform: scale(1.2); 
+    transform: scale(1.2);
+	opacity: 1;
+  }
+   80%   { 
+	 -webkit-transform: scale(0.1);  
+     -ms-transform: scale(0.1); 
+     transform: scale(0.1);
+	 opacity: 1;
+  }
+   100%   { 
+	 -webkit-transform: scale(0.1);  
+     -ms-transform: scale(0.1); 
+     transform: scale(0.1);
+	 opacity: 0;
+  }
+}
+@-moz-keyframes  ring-white {
+  0%   { 
+	 -webkit-transform: scale(1.4);  
+     -ms-transform: scale(1.4); 
+     transform: scale(1.4);
+	 opacity: 1;
+  }
+  50% { 
+	-webkit-transform: scale(1.2);  
+    -ms-transform: scale(1.2); 
+    transform: scale(1.2);
+	opacity: 1;
+  }
+   80%   { 
+	 -webkit-transform: scale(0.1);  
+     -ms-transform: scale(0.1); 
+     transform: scale(0.1);
+	 opacity: 1;
+  }
+   100%   { 
+	 -webkit-transform: scale(0.1);  
+     -ms-transform: scale(0.1); 
+     transform: scale(0.1);
+	 opacity: 0;
+  }
+}
+@-o-keyframes ring-white {
+ 0%   { 
+	 -webkit-transform: scale(1.4);  
+     -ms-transform: scale(1.4); 
+     transform: scale(1.4);
+	 opacity: 1;
+  }
+  50% { 
+	-webkit-transform: scale(1.2);  
+    -ms-transform: scale(1.2); 
+    transform: scale(1.2);
+	opacity: 1;
+  }
+   80%   { 
+	 -webkit-transform: scale(0.1);  
+     -ms-transform: scale(0.1); 
+     transform: scale(0.1);
+	 opacity: 1;
+  }
+   100%   { 
+	 -webkit-transform: scale(0.1);  
+     -ms-transform: scale(0.1); 
+     transform: scale(0.1);
+	 opacity: 0;
+  }
+}
+@keyframes  ring-white {
+  0%   { 
+	 -webkit-transform: scale(1.4);  
+     -ms-transform: scale(1.4); 
+     transform: scale(1.4);
+	 opacity: 1;
+  }
+  50% { 
+	-webkit-transform: scale(1.2);  
+    -ms-transform: scale(1.2); 
+    transform: scale(1.2);
+	opacity: 1;
+  }
+   80%   { 
+	 -webkit-transform: scale(0.1);  
+     -ms-transform: scale(0.1); 
+     transform: scale(0.1);
+	 opacity: 1;
+  }
+   100%   { 
+	 -webkit-transform: scale(0.1);  
+     -ms-transform: scale(0.1); 
+     transform: scale(0.1);
+	 opacity: 0;
+  }
+}
+
+
+
+
+
+
 	@media(max-width: 576px){
 	.contacts_card{
 		margin-bottom: 15px !important;
@@ -264,7 +617,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    AI Stefancoding
+                    AI Stefancoding 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

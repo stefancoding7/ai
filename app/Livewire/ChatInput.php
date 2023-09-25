@@ -92,6 +92,7 @@ class ChatInput extends Component
             $this->out_message = '';
             $this->photo = null;
             $this->dispatch('update-chat-board', $message->model);
+            $this->dispatch('set-show-loading', true);
         } else {
             dd('type not');
         }

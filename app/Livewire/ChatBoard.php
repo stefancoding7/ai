@@ -20,6 +20,7 @@ class ChatBoard extends Component
     public $messages;
     public $slug;
     public $conversation;
+    public $show_loading;
 
     //protected $listeners = ['update-chat-board' => 'updateChatBoard'];
 
@@ -33,6 +34,18 @@ class ChatBoard extends Component
             $this->dispatch('set-selected-gpt', $this->selected_gpt);
         }
        
+    }
+
+    #[On('set-show-loading')] 
+    public function setShowLoading($loading)
+    {
+        
+        if($loading){
+            $this->show_loading = true;
+        } else {
+            $this->show_loading = false;
+        }
+        
     }
 
     #[On('update-chat-board')] 
