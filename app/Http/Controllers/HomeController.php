@@ -19,6 +19,22 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+
+    public function createWebsite($slug, $messageId)
+    {
+        $checkPermission = Conversation::where('long_id', $slug)->where('user_id', auth()->user()->id)->first();
+
+        if(!$checkPermission){
+            return route('/');
+        }
+
+        $message = MessageAI::find($messageId);
+        $c = explode('```', $message->content);
+        $content = $c[1];
+
+        return view('create-website', compact('content'));
+    }
+
     /**
      * Show the application dashboard.
      *

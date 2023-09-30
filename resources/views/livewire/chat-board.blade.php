@@ -142,7 +142,14 @@
                                 <div class="msg_cotainer_send chat__message  chat__message_A" style="font-size: 13px; ">
                                     @if($m->model == 'create-image')
                                         <img src="{{$m->content}}" alt="image" style="border-radius: 15px;">
-
+                                        
+                                    @elseif($m->model == 'create-website')
+                                        
+                                            {!! nl2br($m->styledContent()) !!}
+                                        
+                                        
+                                        <p style="text-align: right; font-size: 10px; margin-top: 10px;"><span class="btn btn-outline-primary btn-sm" style="margin-right: 10px;"><a href="{{route('create-website', [$m->conversation->long_id, $m->id])}}" target="_blank">Create Website</a> </span><i class="bi bi-database-fill"></i> <b>{{$m->total_tokens}}</b></p>
+                                    
                                         
                                     @else
                                         

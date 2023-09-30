@@ -10,6 +10,12 @@ class MessageAI extends Model
     protected $table = 'messages';
     use HasFactory;
 
+
+    public function conversation()
+    {
+        return $this->belongsTo('App\Models\Conversation', 'conversation_id', 'id');
+    }
+
     public function styledContent()
     {
         // Get the content from the model instance

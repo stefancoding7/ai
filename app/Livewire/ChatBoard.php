@@ -96,6 +96,7 @@ class ChatBoard extends Component
 
     }
 
+
     public function render()
     {
 

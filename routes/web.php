@@ -24,7 +24,7 @@ Auth::routes(['register' => false]);
 
 Route::get('/chat/{slug?}', [App\Http\Controllers\HomeController::class, 'chat'])->name('chat');
 Route::get('/conversations', [App\Http\Controllers\HomeController::class, 'conversations'])->name('conversations');
-Route::get('/create-website/{slug}', [App\Http\Controllers\HomeController::class, 'createWebsite'])->name('create-website');
+Route::get('/create-website/{slug}/{messageId}', [App\Http\Controllers\HomeController::class, 'createWebsite'])->name('create-website');
 
 
 Route::get('/my-account', [App\Http\Controllers\HomeController::class, 'myAccount'])->name('my-account');
