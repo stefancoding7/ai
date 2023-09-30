@@ -103,7 +103,7 @@
                             </div>
                             <div class="col-4 m-0 p-0">
                                 <div class="d-grid gap-2">
-                                    <button wire:click="setSelected_gpt('gpt-3.5-turbo')" class="btn btn-{{$selected_gpt != 'gpt-3.5-turbo' ? 'outline-' : ''}}info" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'gpt-3.5-turbo' ? 'color: black;' : ''}}">WEBSITE</button>
+                                    <button wire:click="setSelected_gpt('create-website')" class="btn btn-{{$selected_gpt != 'create-website' ? 'outline-' : ''}}info" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'create-website' ? 'color: black;' : ''}}">WEBSITE</button>
                                 </div>
                                 
                             </div>
