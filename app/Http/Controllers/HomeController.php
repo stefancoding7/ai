@@ -93,7 +93,7 @@ class HomeController extends Controller
         $user->api_key = $request->api_key;
         $user->saver_mode = $request->saver_mode;
         $user->image_resolution = $request->image_resolution;
-        dd($request->create_image);
+       
         if($request->create_image == 1){
             $user->create_image = $request->create_image;
         } else {
