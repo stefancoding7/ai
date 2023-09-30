@@ -90,7 +90,7 @@
                                     
                                 </div>
                             @endif
-                            @if(auth()->user()->gpt_3_5)
+                            @if(auth()->user()->gpt_4)
                                 <div class="col-4 m-0 p-0">
                                     <div class="d-grid gap-2">
                                         <button wire:click="setSelected_gpt('gpt-4')" class="btn btn-{{$selected_gpt != 'gpt-4' ? 'outline-' : ''}}info" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'gpt-4' ? 'color: black;' : ''}}">GPT 4</button>
@@ -99,7 +99,7 @@
                                 </div>
                             @endif
 
-                            @if(auth()->user()->gpt_4)
+                            @if(auth()->user()->gpt_3_5)
                                 <div class="col-4 m-0 p-0">
                                     <div class="d-grid gap-2">
                                         <button wire:click="setSelected_gpt('gpt-3.5-turbo')" class="btn btn-{{$selected_gpt != 'gpt-3.5-turbo' ? 'outline-' : ''}}info" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'gpt-3.5-turbo' ? 'color: black;' : ''}}">GPT 3.5</button>
