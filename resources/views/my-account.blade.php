@@ -129,6 +129,36 @@
                                 <option value="512×512" {{auth()->user()->image_resolution == '512×512' ? 'selected' : ''}}>512×512px</option>
                                 <option value="1024×1024" {{auth()->user()->image_resolution == '1024×1024' ? 'selected' : ''}}>1024×1024px</option>
                             </select>
+                            <br>
+                            <p>Personalize your chat</p>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" value="1" role="switch" id="CreateImage" {{auth()->user()->create_image == 1 ? 'checked' : ''}} autocomplete="off">
+                                        <label class="form-check-label" for="CreateImage" name="create_image">Create Image</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" value="1" role="switch" id="gpt_3_5" {{auth()->user()->gpt_3_5 == 1 ? 'checked' : ''}} autocomplete="off">
+                                        <label class="form-check-label" for="gpt_3_5" name="gpt_3_5">GPT 3.5</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" value="1" role="switch" id="gpt_4" {{auth()->user()->gpt_4 == 1 ? 'checked' : ''}} autocomplete="off">
+                                        <label class="form-check-label" for="gpt_4" name="gpt_4">GPT 4</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" value="1" role="switch" id="create_website" {{auth()->user()->create_website == 1 ? 'checked' : ''}} autocomplete="off">
+                                        <label class="form-check-label" for="create_website" name="create_website">Create Website</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
                             <button class="btn btn-primary mt-3" type="submit" style="border-radius: 20px;">Update</button>
                         </div>
                         

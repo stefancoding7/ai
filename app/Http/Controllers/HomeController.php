@@ -93,6 +93,27 @@ class HomeController extends Controller
         $user->api_key = $request->api_key;
         $user->saver_mode = $request->saver_mode;
         $user->image_resolution = $request->image_resolution;
+        if($request->create_image == 1){
+            $user->create_image = $request->create_image;
+        } else {
+            $user->create_image = 0;
+        }
+        if($request->gpt_3_5 == 1){
+            $user->gpt_3_5 = $request->gpt_3_5;
+        } else {
+            $user->gpt_3_5 = 0;
+        }
+        if($request->gpt_4 == 1){
+            $user->gpt_4 = $request->gpt_4;
+        } else {
+            $user->gpt_4 = 0;
+        }
+        if($request->create_website == 1){
+            $user->create_website = $request->create_website;
+        } else {
+            $user->create_website = 0;
+        }
+        
         $user->save();
 
         return redirect()->back()->with('message', 'Profile has ben updated');
