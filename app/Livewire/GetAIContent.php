@@ -22,6 +22,14 @@ class GetAIContent extends Component
         return view('livewire.get-a-i-content');
     }
 
+    #[On('get-ai-content-website')] 
+    public function createWebsite($selected_gpt)
+    {
+        $conversation = Conversation::where('user_id', auth()->user()->id)->where('long_id', $this->slug)->first();
+        $messages = MessageAI::where('user_id', auth()->user()->id)->where('conversation_id', $conversation->id)->where('model', $selected_gpt)->orderBy('id', 'desc')->first();
+        
+    }
+
     #[On('get-ai-content-image')] 
     public function createImage($selected_gpt)
     {

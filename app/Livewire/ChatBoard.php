@@ -64,7 +64,10 @@ class ChatBoard extends Component
                     if($model == 'create-image'){
                         //dd($model, '1');
                         $this->dispatch('get-ai-content-image', $model);
-                    } else {
+                    }elseif($model == 'create-website'){
+                        //dd($model, '1');
+                        $this->dispatch('get-ai-content-website', $model);
+                    }else {
                         //dd($model, '2');
                         $this->dispatch('get-ai-content-gpt', $model);
                     }
