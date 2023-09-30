@@ -32,7 +32,7 @@
     
     <form wire:submit.prevent="submit">
         <div class="input-group mb-3" style="height: 40px;">
-                <textarea wire:model="out_message"></textarea>
+                <textarea wire:model="out_message" class="form-control" rows="1" ></textarea>
                 {{-- <input  type="text" class="form-control" placeholder="Message..."  aria-describedby="button-addon2" style="border-radius: 20px 0 3px 20px; "> --}}
                 @if($selected_gpt == 'create-image')
                     <span class="input-group-text btn btn-outline-secondary" ><label><input type="file" wire:model="photo" style="display: none;"><i class="bi bi-image" style="font-size: 25px; color: white; margin-top: 15px; padding: 10px;"></label></i></span>
