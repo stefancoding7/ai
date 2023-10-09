@@ -139,7 +139,7 @@
                                         <img src="https://images.stefancoding.com/ai/chat-images/user-images/{{$conversation->long_id}}/{{$m->image}}" alt="image" style="border-radius: 15px;">
                                         {{$m->content}}
                                     @else
-                                        {{$m->content}}
+                                        {!! nl2br($m->content)!!}
                                     @endif
                                     
 
@@ -153,15 +153,15 @@
                                         
                                     @elseif($m->model == 'create-website')
                                         
-                                            {!! nl2br($m->styledContent()) !!}
-                                        
-                                        
-                                        <p style="text-align: right; font-size: 10px; margin-top: 10px;"><span class="btn btn-outline-primary btn-sm" style="margin-right: 10px;"><a href="{{route('create-website', [$m->conversation->long_id, $m->id])}}" target="_blank">Create Website</a> </span><i class="bi bi-database-fill"></i> <b>{{$m->total_tokens}}</b></p>
+                                        {!! nl2br($m->styledContent()) !!}
+
+                                        {{-- <iframe src="{{route('create-website', [$m->conversation->long_id, $m->id])}}" title="stefancoding" style="width: 100%;"></iframe>  --}}
+                                        <p style="text-align: right; font-size: 10px; margin-top: 10px;"> <span class="btn btn-outline-primary btn-sm" style="margin-right: 10px;"><a href="{{route('create-website', [$m->conversation->long_id, $m->id])}}" target="_blank">Create Website</a> </span><i class="bi bi-database-fill"></i> <b>{{$m->total_tokens}}</b></p>
                                     
                                         
                                     @else
                                         
-                                            {!! nl2br($m->styledContent()) !!}
+                                        {!! nl2br($m->styledContent()) !!}
                                         
                                         
                                         <p style="text-align: right; font-size: 10px; margin-top: 10px;"><i class="bi bi-database-fill"></i> <b>{{$m->total_tokens}}</b></p>

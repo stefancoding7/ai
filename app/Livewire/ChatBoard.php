@@ -21,6 +21,7 @@ class ChatBoard extends Component
     public $slug;
     public $conversation;
     public $show_loading;
+    public $show_code = false;
 
     //protected $listeners = ['update-chat-board' => 'updateChatBoard'];
 
