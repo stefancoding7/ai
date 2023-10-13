@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-8">
                         <div class="row">
-                            @if(auth()->user()->creat_image)
+                            @if(auth()->user()->create_image)
                                 <div class="col-4 m-0 p-0">
                                     <div class="d-grid gap-2 mb-2">
                                         <button wire:click="setSelected_gpt('create-image')" class="btn btn-{{$selected_gpt != 'create-image' ? 'outline-' : ''}}info" style="border-radius: 20px; font-size: 12px; {{$selected_gpt != 'create-image' ? 'color: black;' : ''}}" ><i class="bi bi-image"></i></button>
