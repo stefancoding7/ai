@@ -12,8 +12,8 @@
                             <div class="fw-bold">{{$conv->name}}</div>
                                 @php($model = $conv->messagesAI->groupBy('model'))
                                 @foreach($model as $m)
-                                    @if($m->first()->model == 'gpt-4')
-                                        <span class="badge text-bg-light">GPT 4</span>
+                                    @if($m->first()->model == 'gpt-4o')
+                                        <span class="badge text-bg-light">GPT 4o</span>
 
                                         
                                     @endif

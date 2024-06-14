@@ -53,7 +53,7 @@ class GetAIContent extends Component
             ->make();
         
         $response = $client->chat()->create([
-            'model' => 'gpt-4',
+            'model' => 'gpt-4o',
             'messages' => $messagesArray,
         ]);
 

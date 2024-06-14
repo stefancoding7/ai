@@ -15,7 +15,7 @@ class ChatBoard extends Component
 
     public $out_message;
     public $in_message;
-    public $selected_gpt = 'gpt-4';
+    public $selected_gpt = 'gpt-4o';
 
     public $messages;
     public $slug;
@@ -183,7 +183,7 @@ class ChatBoard extends Component
             ->make();
         
         $response = $client->chat()->create([
-            'model' => 'gpt-4',
+            'model' => 'gpt-4o',
             'messages' => $messagesArray,
         ]);
 
@@ -207,7 +207,7 @@ class ChatBoard extends Component
         $message->conversation_id = 1;
         $message->user_id = auth()->user()->id;
         $message->role = 'assistant';
-        $message->model = 'gpt-4';
+        $message->model = 'gpt-4o';
         $message->content = $response->toArray()['choices'][0]['message']['content'];
         $message->save();
         
