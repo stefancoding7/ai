@@ -62,7 +62,7 @@ class HomeController extends Controller
 
     public function myAccount()
     {
-        $gpt4TotalTokens = MessageAI::where('user_id', auth()->user()->id)->where('model', 'gpt-4o')->sum('total_tokens');
+        $gpt4TotalTokens = MessageAI::where('user_id', auth()->user()->id)->where('model', 'gpt-4o-2024-05-13')->sum('total_tokens');
         $gpt35TotalTokens = MessageAI::where('user_id', auth()->user()->id)->where('model', 'gpt-3.5-turbo')->sum('total_tokens');
         $createImageTotalTokens = MessageAI::where('user_id', auth()->user()->id)->where('model', 'gpt-3.5-turbo')->sum('total_tokens');
 
