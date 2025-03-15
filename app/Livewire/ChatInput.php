@@ -19,7 +19,7 @@ class ChatInput extends Component
     use WithFileUploads;
 
     public $out_message;
-    public $selected_gpt = 'GPT-4.5';
+    public $selected_gpt = 'gpt-4.5-preview';
     public $slug;
 
     #[Rule('image|max:1024')]
